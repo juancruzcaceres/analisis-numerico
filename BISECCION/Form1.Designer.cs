@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.biseccionBtn = new System.Windows.Forms.Button();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.raizResult = new System.Windows.Forms.Label();
             this.raizLabel = new System.Windows.Forms.Label();
             this.errorResult = new System.Windows.Forms.Label();
@@ -49,8 +51,7 @@
             this.Xi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.functionInput = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.warningLabel = new System.Windows.Forms.Label();
+            this.reglafalsaBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +59,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -67,6 +67,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.reglafalsaBtn);
+            this.tabPage1.Controls.Add(this.biseccionBtn);
             this.tabPage1.Controls.Add(this.warningLabel);
             this.tabPage1.Controls.Add(this.raizResult);
             this.tabPage1.Controls.Add(this.raizLabel);
@@ -92,13 +94,31 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(780, 412);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Bisección";
+            this.tabPage1.Text = "METODOS";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // biseccionBtn
+            // 
+            this.biseccionBtn.Location = new System.Drawing.Point(14, 154);
+            this.biseccionBtn.Name = "biseccionBtn";
+            this.biseccionBtn.Size = new System.Drawing.Size(75, 23);
+            this.biseccionBtn.TabIndex = 21;
+            this.biseccionBtn.Text = "BISECCIÓN";
+            this.biseccionBtn.UseVisualStyleBackColor = true;
+            this.biseccionBtn.Click += new System.EventHandler(this.biseccionBtn_Click);
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.Location = new System.Drawing.Point(11, 96);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(0, 13);
+            this.warningLabel.TabIndex = 20;
             // 
             // raizResult
             // 
             this.raizResult.AutoSize = true;
-            this.raizResult.Location = new System.Drawing.Point(48, 218);
+            this.raizResult.Location = new System.Drawing.Point(51, 334);
             this.raizResult.Name = "raizResult";
             this.raizResult.Size = new System.Drawing.Size(0, 13);
             this.raizResult.TabIndex = 19;
@@ -106,7 +126,7 @@
             // raizLabel
             // 
             this.raizLabel.AutoSize = true;
-            this.raizLabel.Location = new System.Drawing.Point(8, 218);
+            this.raizLabel.Location = new System.Drawing.Point(11, 334);
             this.raizLabel.Name = "raizLabel";
             this.raizLabel.Size = new System.Drawing.Size(33, 13);
             this.raizLabel.TabIndex = 18;
@@ -115,7 +135,7 @@
             // errorResult
             // 
             this.errorResult.AutoSize = true;
-            this.errorResult.Location = new System.Drawing.Point(76, 191);
+            this.errorResult.Location = new System.Drawing.Point(79, 307);
             this.errorResult.Name = "errorResult";
             this.errorResult.Size = new System.Drawing.Size(0, 13);
             this.errorResult.TabIndex = 17;
@@ -123,7 +143,7 @@
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(8, 191);
+            this.errorLabel.Location = new System.Drawing.Point(11, 307);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(69, 13);
             this.errorLabel.TabIndex = 16;
@@ -132,7 +152,7 @@
             // iterResult
             // 
             this.iterResult.AutoSize = true;
-            this.iterResult.Location = new System.Drawing.Point(112, 177);
+            this.iterResult.Location = new System.Drawing.Point(115, 293);
             this.iterResult.Name = "iterResult";
             this.iterResult.Size = new System.Drawing.Size(0, 13);
             this.iterResult.TabIndex = 15;
@@ -140,7 +160,7 @@
             // iterLabel
             // 
             this.iterLabel.AutoSize = true;
-            this.iterLabel.Location = new System.Drawing.Point(8, 177);
+            this.iterLabel.Location = new System.Drawing.Point(11, 293);
             this.iterLabel.Name = "iterLabel";
             this.iterLabel.Size = new System.Drawing.Size(104, 13);
             this.iterLabel.TabIndex = 14;
@@ -149,7 +169,7 @@
             // convergeResult
             // 
             this.convergeResult.AutoSize = true;
-            this.convergeResult.Location = new System.Drawing.Point(73, 164);
+            this.convergeResult.Location = new System.Drawing.Point(76, 280);
             this.convergeResult.Name = "convergeResult";
             this.convergeResult.Size = new System.Drawing.Size(0, 13);
             this.convergeResult.TabIndex = 13;
@@ -157,7 +177,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 164);
+            this.label2.Location = new System.Drawing.Point(11, 280);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 12;
@@ -166,7 +186,7 @@
             // Resultados
             // 
             this.Resultados.AutoSize = true;
-            this.Resultados.Location = new System.Drawing.Point(8, 138);
+            this.Resultados.Location = new System.Drawing.Point(11, 254);
             this.Resultados.Name = "Resultados";
             this.Resultados.Size = new System.Drawing.Size(60, 13);
             this.Resultados.TabIndex = 11;
@@ -252,23 +272,15 @@
             this.functionInput.Size = new System.Drawing.Size(100, 20);
             this.functionInput.TabIndex = 1;
             // 
-            // tabPage2
+            // reglafalsaBtn
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(780, 412);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // warningLabel
-            // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.Location = new System.Drawing.Point(11, 96);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(0, 13);
-            this.warningLabel.TabIndex = 20;
+            this.reglafalsaBtn.Location = new System.Drawing.Point(104, 154);
+            this.reglafalsaBtn.Name = "reglafalsaBtn";
+            this.reglafalsaBtn.Size = new System.Drawing.Size(75, 23);
+            this.reglafalsaBtn.TabIndex = 22;
+            this.reglafalsaBtn.Text = "REGLA FALSA";
+            this.reglafalsaBtn.UseVisualStyleBackColor = true;
+            this.reglafalsaBtn.Click += new System.EventHandler(this.reglafalsaBtn_Click);
             // 
             // Form1
             // 
@@ -289,7 +301,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label Resultados;
         private System.Windows.Forms.TextBox iterValue;
         private System.Windows.Forms.Label iter;
@@ -310,6 +321,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label raizResult;
         private System.Windows.Forms.Label warningLabel;
+        private System.Windows.Forms.Button biseccionBtn;
+        private System.Windows.Forms.Button reglafalsaBtn;
     }
 }
 
