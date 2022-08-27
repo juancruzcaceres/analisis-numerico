@@ -23,7 +23,7 @@ namespace BISECCION
 
         private void biseccionBtn_Click(object sender, EventArgs e)
         {
-            if (xiValue.Text != "" && xdValue.Text != "" && toleValue.Text != "" && iterValue.Text != "")
+            if (functionInput.Text != "" && xiValue.Text != "" && xdValue.Text != "" && toleValue.Text != "" && iterValue.Text != "")
             {
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
@@ -51,7 +51,7 @@ namespace BISECCION
                             contador++;
                             double xr = (xi + xd)/2;
                             double error = Math.Abs((xr - xant) / xr);
-                            if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador >= int.Parse(iterValue.Text))
+                            if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
                             {
                                 if (contador >= int.Parse(iterValue.Text))
                                 {
@@ -91,7 +91,7 @@ namespace BISECCION
 
         private void reglafalsaBtn_Click(object sender, EventArgs e)
         {
-            if (xiValue.Text != "" && xdValue.Text != "" && toleValue.Text != "" && iterValue.Text != "")
+            if (functionInput.Text != "" && xiValue.Text != "" && xdValue.Text != "" && toleValue.Text != "" && iterValue.Text != "")
             {
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
@@ -126,7 +126,7 @@ namespace BISECCION
                             {
                                 double xr = (AnalizadorDeFunciones.EvaluaFx(xi) * xd - AnalizadorDeFunciones.EvaluaFx(xd) * xi) / divisorXr;
                                 double error = Math.Abs((xr - xant) / xr);
-                                if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador >= int.Parse(iterValue.Text))
+                                if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
                                 {
                                     if (contador >= int.Parse(iterValue.Text))
                                     {
@@ -156,6 +156,51 @@ namespace BISECCION
                                 raizResult.Text = xd.ToString();
                             break;
                     }
+                }
+            }
+            else
+            {
+                warningLabel.Text = "Ingresa todos los valores antes de ingresar la f(x)";
+            }
+        }
+
+        private void newtonBtn_Click(object sender, EventArgs e)
+        {
+            if (functionInput.Text != "" && toleValue.Text != "" && iterValue.Text != "")
+            {
+                Calculo AnalizadorDeFunciones = new Calculo();
+                string fx = functionInput.Text;
+                AnalizadorDeFunciones.Sintaxis(fx, 'x');
+                int xant = 0;
+                int contador = 0;
+                int xini = 0; //se inicializa en 0?
+                aumentar:
+                contador++;
+                var DERIF = (AnalizadorDeFunciones.EvaluaFx(xini + 0.0001) - AnalizadorDeFunciones.EvaluaFx(xini))/0.0001;
+                double xr = xini - AnalizadorDeFunciones.EvaluaFx(xini) / ; //dividir por que?
+                double error = Math.Abs((xr - xant) / xr);
+
+                if (AnalizadorDeFunciones.EvaluaFx(xr) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
+                {
+                    if (contador >= int.Parse(iterValue.Text))
+                        convergeResult.Text = "No";
+                    else 
+                        convergeResult.Text = "Sí";
+
+                    if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text))
+                        raizResult.Text = xr.ToString();
+                    else
+                        raizResult.Text = "xr no admitida como raiz";
+
+                    iterResult.Text = contador.ToString();
+                    errorResult.Text = error.ToString();
+
+                } 
+                else
+                {
+                    xant = xr;
+                    xini = xr;
+                    goto aumentar;
                 }
             }
             else

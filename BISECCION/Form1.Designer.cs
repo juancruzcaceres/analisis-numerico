@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.reglafalsaBtn = new System.Windows.Forms.Button();
             this.biseccionBtn = new System.Windows.Forms.Button();
             this.warningLabel = new System.Windows.Forms.Label();
             this.raizResult = new System.Windows.Forms.Label();
@@ -51,7 +52,8 @@
             this.Xi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.functionInput = new System.Windows.Forms.TextBox();
-            this.reglafalsaBtn = new System.Windows.Forms.Button();
+            this.newtonBtn = new System.Windows.Forms.Button();
+            this.secanteBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +69,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.secanteBtn);
+            this.tabPage1.Controls.Add(this.newtonBtn);
             this.tabPage1.Controls.Add(this.reglafalsaBtn);
             this.tabPage1.Controls.Add(this.biseccionBtn);
             this.tabPage1.Controls.Add(this.warningLabel);
@@ -96,6 +100,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "METODOS";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // reglafalsaBtn
+            // 
+            this.reglafalsaBtn.Location = new System.Drawing.Point(104, 154);
+            this.reglafalsaBtn.Name = "reglafalsaBtn";
+            this.reglafalsaBtn.Size = new System.Drawing.Size(90, 23);
+            this.reglafalsaBtn.TabIndex = 22;
+            this.reglafalsaBtn.Text = "REGLA FALSA";
+            this.reglafalsaBtn.UseVisualStyleBackColor = true;
+            this.reglafalsaBtn.Click += new System.EventHandler(this.reglafalsaBtn_Click);
             // 
             // biseccionBtn
             // 
@@ -272,15 +286,24 @@
             this.functionInput.Size = new System.Drawing.Size(100, 20);
             this.functionInput.TabIndex = 1;
             // 
-            // reglafalsaBtn
+            // newtonBtn
             // 
-            this.reglafalsaBtn.Location = new System.Drawing.Point(104, 154);
-            this.reglafalsaBtn.Name = "reglafalsaBtn";
-            this.reglafalsaBtn.Size = new System.Drawing.Size(75, 23);
-            this.reglafalsaBtn.TabIndex = 22;
-            this.reglafalsaBtn.Text = "REGLA FALSA";
-            this.reglafalsaBtn.UseVisualStyleBackColor = true;
-            this.reglafalsaBtn.Click += new System.EventHandler(this.reglafalsaBtn_Click);
+            this.newtonBtn.Location = new System.Drawing.Point(209, 154);
+            this.newtonBtn.Name = "newtonBtn";
+            this.newtonBtn.Size = new System.Drawing.Size(123, 23);
+            this.newtonBtn.TabIndex = 23;
+            this.newtonBtn.Text = "NEWTON-RAPHSON";
+            this.newtonBtn.UseVisualStyleBackColor = true;
+            this.newtonBtn.Click += new System.EventHandler(this.newtonBtn_Click);
+            // 
+            // secanteBtn
+            // 
+            this.secanteBtn.Location = new System.Drawing.Point(351, 154);
+            this.secanteBtn.Name = "secanteBtn";
+            this.secanteBtn.Size = new System.Drawing.Size(75, 23);
+            this.secanteBtn.TabIndex = 24;
+            this.secanteBtn.Text = "SECANTE";
+            this.secanteBtn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -323,6 +346,8 @@
         private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.Button biseccionBtn;
         private System.Windows.Forms.Button reglafalsaBtn;
+        private System.Windows.Forms.Button secanteBtn;
+        private System.Windows.Forms.Button newtonBtn;
     }
 }
 
