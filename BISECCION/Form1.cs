@@ -25,6 +25,7 @@ namespace BISECCION
         {
             if (functionInput.Text != "" && xiValue.Text != "" && xdValue.Text != "" && toleValue.Text != "" && iterValue.Text != "")
             {
+                warningLabel.Text = "";
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
@@ -93,10 +94,11 @@ namespace BISECCION
         {
             if (functionInput.Text != "" && xiValue.Text != "" && xdValue.Text != "" && toleValue.Text != "" && iterValue.Text != "")
             {
+                warningLabel.Text = "";
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
-            evaluar:
+                evaluar:
                 if (xiValue.Text == "" || xdValue.Text == "")
                 {
                     MessageBox.Show("Ingrese nuevos valores para xi y xd");
@@ -168,37 +170,40 @@ namespace BISECCION
         {
             if (functionInput.Text != "" && toleValue.Text != "" && iterValue.Text != "")
             {
+                warningLabel.Text = "";
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
-                int xant = 0;
+                double xant = 0;
                 int contador = 0;
-                int xini = 0; //se inicializa en 0?
+                double xini = double.Parse(xiValue.Text);
+                if(AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
+                {
+                    raizResult.Text = xini.ToString();
+                }
                 aumentar:
                 contador++;
-                var DERIF = (AnalizadorDeFunciones.EvaluaFx(xini + 0.0001) - AnalizadorDeFunciones.EvaluaFx(xini))/0.0001;
-                double xr = xini - AnalizadorDeFunciones.EvaluaFx(xini) / ; //dividir por que?
+                var DERIF = AnalizadorDeFunciones.Dx(xini);
+                double xr = xini - (AnalizadorDeFunciones.EvaluaFx(xini) / DERIF) ; //para secante cambiar xr
                 double error = Math.Abs((xr - xant) / xr);
-
-                if (AnalizadorDeFunciones.EvaluaFx(xr) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
+                var fxr = Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr));
+                var tole = double.Parse(toleValue.Text);
+                if (fxr < tole || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
                 {
                     if (contador >= int.Parse(iterValue.Text))
                         convergeResult.Text = "No";
                     else 
                         convergeResult.Text = "Sí";
 
-                    if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text))
-                        raizResult.Text = xr.ToString();
-                    else
-                        raizResult.Text = "xr no admitida como raiz";
-
+                    raizResult.Text = xr.ToString();
+                        
                     iterResult.Text = contador.ToString();
                     errorResult.Text = error.ToString();
 
                 } 
                 else
                 {
-                    xant = xr;
+                    xant = xr; //para secante es xini = xini2, xini2=xr 
                     xini = xr;
                     goto aumentar;
                 }
