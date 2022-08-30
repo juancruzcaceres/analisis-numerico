@@ -31,9 +31,7 @@ namespace BISECCION
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
                 evaluar:
                 if(xiValue.Text == "" || xdValue.Text == "")
-                {
                     MessageBox.Show("Ingrese nuevos valores para xi y xd");
-                }
                 else
                 {
                     double xi = double.Parse(xiValue.Text);
@@ -55,13 +53,10 @@ namespace BISECCION
                             if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
                             {
                                 if (contador >= int.Parse(iterValue.Text))
-                                {
                                     convergeResult.Text = "No";
-                                }
                                 else
-                                {
                                     convergeResult.Text = "Sí";
-                                }
+
                                 raizResult.Text = xr.ToString();
                                 iterResult.Text = contador.ToString();
                                 errorResult.Text = error.ToString();
@@ -84,10 +79,7 @@ namespace BISECCION
                 }
             }
             else
-            {
                 warningLabel.Text = "Ingresa todos los valores antes de ingresar la f(x)";
-            }
-
         }
 
         private void reglafalsaBtn_Click(object sender, EventArgs e)
@@ -100,9 +92,7 @@ namespace BISECCION
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
                 evaluar:
                 if (xiValue.Text == "" || xdValue.Text == "")
-                {
                     MessageBox.Show("Ingrese nuevos valores para xi y xd");
-                }
                 else
                 {
                     double xi = double.Parse(xiValue.Text);
@@ -117,13 +107,11 @@ namespace BISECCION
                         case var _ when valor < 0:
                             double xant = 0;
                             int contador = 0;
-                        aumentar:
+                            aumentar:
                             contador++;
                             var divisorXr = AnalizadorDeFunciones.EvaluaFx(xi) - AnalizadorDeFunciones.EvaluaFx(xd);
                             if (divisorXr == 0)
-                            {
                                 goto evaluar;
-                            }
                             else
                             {
                                 double xr = (AnalizadorDeFunciones.EvaluaFx(xi) * xd - AnalizadorDeFunciones.EvaluaFx(xd) * xi) / divisorXr;
@@ -131,13 +119,10 @@ namespace BISECCION
                                 if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
                                 {
                                     if (contador >= int.Parse(iterValue.Text))
-                                    {
                                         convergeResult.Text = "No";
-                                    }
                                     else
-                                    {
                                         convergeResult.Text = "Sí";
-                                    }
+
                                     raizResult.Text = xr.ToString();
                                     iterResult.Text = contador.ToString();
                                     errorResult.Text = error.ToString();
@@ -161,9 +146,7 @@ namespace BISECCION
                 }
             }
             else
-            {
                 warningLabel.Text = "Ingresa todos los valores antes de ingresar la f(x)";
-            }
         }
 
         private void newtonBtn_Click(object sender, EventArgs e)
@@ -178,40 +161,104 @@ namespace BISECCION
                 int contador = 0;
                 double xini = double.Parse(xiValue.Text);
                 if(AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
-                {
                     raizResult.Text = xini.ToString();
-                }
-                aumentar:
-                contador++;
-                var DERIF = AnalizadorDeFunciones.Dx(xini);
-                double xr = xini - (AnalizadorDeFunciones.EvaluaFx(xini) / DERIF) ; //para secante cambiar xr
-                double error = Math.Abs((xr - xant) / xr);
-                var fxr = Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr));
-                var tole = double.Parse(toleValue.Text);
-                if (fxr < tole || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
-                {
-                    if (contador >= int.Parse(iterValue.Text))
-                        convergeResult.Text = "No";
-                    else 
-                        convergeResult.Text = "Sí";
-
-                    raizResult.Text = xr.ToString();
-                        
-                    iterResult.Text = contador.ToString();
-                    errorResult.Text = error.ToString();
-
-                } 
                 else
                 {
-                    xant = xr; //para secante es xini = xini2, xini2=xr 
-                    xini = xr;
-                    goto aumentar;
+                    aumentar:
+                    contador++;
+                    var DERIF = AnalizadorDeFunciones.Dx(xini);
+                    if(DERIF == 0)
+                        warningLabel.Text = "Fx'(xini) = 0. Error por división por cero!.";
+                    else
+                    {
+                        double xr = xini - (AnalizadorDeFunciones.EvaluaFx(xini) / DERIF);
+                        if(xr == 0)
+                            warningLabel.Text = "xr = 0. Error por división por cero!.";
+                        else
+                        {
+                            double error = Math.Abs((xr - xant) / xr);
+                            var fxr = Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr));
+                            var tole = double.Parse(toleValue.Text);
+                            if (fxr < tole || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
+                            {
+                                if (contador >= int.Parse(iterValue.Text))
+                                    convergeResult.Text = "No";
+                                else
+                                    convergeResult.Text = "Sí";
+
+                                raizResult.Text = xr.ToString();
+                                iterResult.Text = contador.ToString();
+                                errorResult.Text = error.ToString();
+                            }
+                            else
+                            {
+                                xant = xr;
+                                xini = xr;
+                                goto aumentar;
+                            }
+                        }
+                    }
                 }
             }
             else
-            {
                 warningLabel.Text = "Ingresa todos los valores antes de ingresar la f(x)";
+        }
+
+        private void secanteBtn_Click(object sender, EventArgs e)
+        {
+            if (functionInput.Text != "" && toleValue.Text != "" && iterValue.Text != "")
+            {
+                warningLabel.Text = "";
+                Calculo AnalizadorDeFunciones = new Calculo();
+                string fx = functionInput.Text;
+                AnalizadorDeFunciones.Sintaxis(fx, 'x');
+                double xant = 0;
+                int contador = 0;
+                double xini = double.Parse(xiValue.Text);
+                double xini2 = double.Parse(xdValue.Text);
+                if (AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
+                    raizResult.Text = xini.ToString();
+                else
+                {
+                    aumentar:
+                    contador++;
+                    var DERIF = AnalizadorDeFunciones.Dx(xini);
+                    var divisorxr = AnalizadorDeFunciones.EvaluaFx(xini2) - AnalizadorDeFunciones.EvaluaFx(xini);
+                    if(divisorxr == 0)
+                        warningLabel.Text = "F(xini2) - F(xini) = 0. Error por división por cero!.";
+                    else
+                    {
+                        double xr = (AnalizadorDeFunciones.EvaluaFx(xini2) * xini - AnalizadorDeFunciones.EvaluaFx(xini) * xini2) / divisorxr;
+                        if (xr == 0)
+                            warningLabel.Text = "xr = 0. Error por división por cero!.";
+                        else
+                        {
+                            double error = Math.Abs((xr - xant) / xr);
+                            var fxr = Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr));
+                            var tole = double.Parse(toleValue.Text);
+                            if (fxr < tole || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
+                            {
+                                if (contador >= int.Parse(iterValue.Text))
+                                    convergeResult.Text = "No";
+                                else
+                                    convergeResult.Text = "Sí";
+
+                                raizResult.Text = xr.ToString();
+                                iterResult.Text = contador.ToString();
+                                errorResult.Text = error.ToString();
+                            }
+                            else
+                            {
+                                xini = xini2;
+                                xini2 = xr;
+                                goto aumentar;
+                            }
+                        }
+                    }
+                }
             }
+            else
+                warningLabel.Text = "Ingresa todos los valores antes de ingresar la f(x)";
         }
     }
 }

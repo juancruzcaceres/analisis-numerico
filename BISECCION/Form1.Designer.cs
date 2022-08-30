@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.secanteBtn = new System.Windows.Forms.Button();
+            this.newtonBtn = new System.Windows.Forms.Button();
             this.reglafalsaBtn = new System.Windows.Forms.Button();
             this.biseccionBtn = new System.Windows.Forms.Button();
             this.warningLabel = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.Xi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.functionInput = new System.Windows.Forms.TextBox();
-            this.newtonBtn = new System.Windows.Forms.Button();
-            this.secanteBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +100,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "METODOS";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // secanteBtn
+            // 
+            this.secanteBtn.Location = new System.Drawing.Point(351, 154);
+            this.secanteBtn.Name = "secanteBtn";
+            this.secanteBtn.Size = new System.Drawing.Size(75, 23);
+            this.secanteBtn.TabIndex = 24;
+            this.secanteBtn.Text = "SECANTE";
+            this.secanteBtn.UseVisualStyleBackColor = true;
+            this.secanteBtn.Click += new System.EventHandler(this.secanteBtn_Click);
+            // 
+            // newtonBtn
+            // 
+            this.newtonBtn.Location = new System.Drawing.Point(209, 154);
+            this.newtonBtn.Name = "newtonBtn";
+            this.newtonBtn.Size = new System.Drawing.Size(123, 23);
+            this.newtonBtn.TabIndex = 23;
+            this.newtonBtn.Text = "NEWTON-RAPHSON";
+            this.newtonBtn.UseVisualStyleBackColor = true;
+            this.newtonBtn.Click += new System.EventHandler(this.newtonBtn_Click);
             // 
             // reglafalsaBtn
             // 
@@ -285,25 +305,6 @@
             this.functionInput.Name = "functionInput";
             this.functionInput.Size = new System.Drawing.Size(100, 20);
             this.functionInput.TabIndex = 1;
-            // 
-            // newtonBtn
-            // 
-            this.newtonBtn.Location = new System.Drawing.Point(209, 154);
-            this.newtonBtn.Name = "newtonBtn";
-            this.newtonBtn.Size = new System.Drawing.Size(123, 23);
-            this.newtonBtn.TabIndex = 23;
-            this.newtonBtn.Text = "NEWTON-RAPHSON";
-            this.newtonBtn.UseVisualStyleBackColor = true;
-            this.newtonBtn.Click += new System.EventHandler(this.newtonBtn_Click);
-            // 
-            // secanteBtn
-            // 
-            this.secanteBtn.Location = new System.Drawing.Point(351, 154);
-            this.secanteBtn.Name = "secanteBtn";
-            this.secanteBtn.Size = new System.Drawing.Size(75, 23);
-            this.secanteBtn.TabIndex = 24;
-            this.secanteBtn.Text = "SECANTE";
-            this.secanteBtn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
