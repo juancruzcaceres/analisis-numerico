@@ -159,8 +159,8 @@ namespace BISECCION
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
                 double xant = 0;
                 int contador = 0;
-                double xini = double.Parse(xiValue.Text);                       
-                if (AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
+                double xini = double.Parse(xiValue.Text);              
+                if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xini)) < double.Parse(toleValue.Text))
                     raizResult.Text = xini.ToString();
                 else
                 {
@@ -216,7 +216,7 @@ namespace BISECCION
                 int contador = 0;
                 double xini = double.Parse(xiValue.Text);
                 double xini2 = double.Parse(xdValue.Text);
-                if (AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
+                if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xini)) < double.Parse(toleValue.Text))
                     raizResult.Text = xini.ToString();
                 else
                 {
