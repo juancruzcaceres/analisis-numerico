@@ -63,7 +63,7 @@ namespace BISECCION
                                 break;
                             }
                             else
-                                if (AnalizadorDeFunciones.EvaluaFx(xi) * AnalizadorDeFunciones.EvaluaFx(xd) < 0)
+                                if (AnalizadorDeFunciones.EvaluaFx(xi) * AnalizadorDeFunciones.EvaluaFx(xr) < 0)
                                     xd = xr;
                             else
                                 xi = xr;
@@ -159,8 +159,8 @@ namespace BISECCION
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
                 double xant = 0;
                 int contador = 0;
-                double xini = double.Parse(xiValue.Text);
-                if(AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
+                double xini = double.Parse(xiValue.Text);                       
+                if (AnalizadorDeFunciones.EvaluaFx(xini) < double.Parse(toleValue.Text))
                     raizResult.Text = xini.ToString();
                 else
                 {
