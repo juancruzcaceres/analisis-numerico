@@ -232,6 +232,7 @@
             this.iterValue.Name = "iterValue";
             this.iterValue.Size = new System.Drawing.Size(100, 20);
             this.iterValue.TabIndex = 10;
+            this.iterValue.Text = "100";
             // 
             // iter
             // 
@@ -248,6 +249,7 @@
             this.toleValue.Name = "toleValue";
             this.toleValue.Size = new System.Drawing.Size(100, 20);
             this.toleValue.TabIndex = 8;
+            this.toleValue.Text = "0,0001";
             // 
             // tolerancia
             // 
