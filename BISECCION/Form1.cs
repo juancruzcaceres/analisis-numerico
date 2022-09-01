@@ -129,7 +129,7 @@ namespace BISECCION
                                     break;
                                 }
                                 else
-                                    if (AnalizadorDeFunciones.EvaluaFx(xi) * AnalizadorDeFunciones.EvaluaFx(xd) < 0)
+                                    if (AnalizadorDeFunciones.EvaluaFx(xi) * AnalizadorDeFunciones.EvaluaFx(xr) < 0)
                                     xd = xr;
                                 else
                                     xi = xr;
@@ -222,7 +222,6 @@ namespace BISECCION
                 {
                     aumentar:
                     contador++;
-                    var DERIF = AnalizadorDeFunciones.Dx(xini);
                     var divisorxr = AnalizadorDeFunciones.EvaluaFx(xini2) - AnalizadorDeFunciones.EvaluaFx(xini);
                     if(divisorxr == 0)
                         warningLabel.Text = "F(xini2) - F(xini) = 0. Error por división por cero!.";
@@ -251,6 +250,7 @@ namespace BISECCION
                             {
                                 xini = xini2;
                                 xini2 = xr;
+                                xant = xr;
                                 goto aumentar;
                             }
                         }
