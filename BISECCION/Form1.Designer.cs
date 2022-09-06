@@ -105,7 +105,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(780, 412);
+            this.tabPage1.Size = new System.Drawing.Size(1298, 660);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "UNIDAD 1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -350,6 +350,7 @@
             this.calcularBtn.TabIndex = 4;
             this.calcularBtn.Text = "CALCULAR";
             this.calcularBtn.UseVisualStyleBackColor = true;
+            this.calcularBtn.Click += new System.EventHandler(this.calcularBtn_Click);
             // 
             // tipoCombobox
             // 

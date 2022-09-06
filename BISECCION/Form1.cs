@@ -306,5 +306,39 @@ namespace BISECCION
             }
             return matriz;
         }
+
+        private void calcularBtn_Click(object sender, EventArgs e)
+        {
+            int dimension = int.Parse(dimensionValue.Text);
+            double[,] matriz = GuardarMatriz(dimension);
+            double[] resultado = new double[dimension];
+            switch (tipoCombobox.SelectedIndex)
+            {
+                case 0:
+                    //metodo Gauss Jordan
+                    resultado = GaussJordan(dimension, matriz);
+                    break;
+
+                case 1:
+                    //metodo Gauss Seidel
+                    resultado = GaussSeidel(dimension, matriz);
+                    break;
+
+                default:
+                    break;
+            }
+
+
+        }
+
+        public double[] GaussJordan(int dimension, double[,] matriz)
+        {
+            return new double[1];
+        }
+
+        public double[] GaussSeidel(int dimension, double[,] matriz)
+        {
+            return new double[1];
+        }
     }
 }
