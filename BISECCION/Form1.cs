@@ -29,8 +29,8 @@ namespace BISECCION
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
-                evaluar:
-                if(xiValue.Text == "" || xdValue.Text == "")
+            evaluar:
+                if (xiValue.Text == "" || xdValue.Text == "")
                     MessageBox.Show("Ingrese nuevos valores para xi y xd");
                 else
                 {
@@ -46,9 +46,9 @@ namespace BISECCION
                         case var _ when valor < 0:
                             double xant = 0;
                             int contador = 0;
-                            aumentar:
+                        aumentar:
                             contador++;
-                            double xr = (xi + xd)/2;
+                            double xr = (xi + xd) / 2;
                             double error = Math.Abs((xr - xant) / xr);
                             if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xr)) < double.Parse(toleValue.Text) || error < double.Parse(toleValue.Text) || contador > int.Parse(iterValue.Text))
                             {
@@ -64,7 +64,7 @@ namespace BISECCION
                             }
                             else
                                 if (AnalizadorDeFunciones.EvaluaFx(xi) * AnalizadorDeFunciones.EvaluaFx(xr) < 0)
-                                    xd = xr;
+                                xd = xr;
                             else
                                 xi = xr;
                             xant = xr;
@@ -90,7 +90,7 @@ namespace BISECCION
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
-                evaluar:
+            evaluar:
                 if (xiValue.Text == "" || xdValue.Text == "")
                     MessageBox.Show("Ingrese nuevos valores para xi y xd");
                 else
@@ -107,7 +107,7 @@ namespace BISECCION
                         case var _ when valor < 0:
                             double xant = 0;
                             int contador = 0;
-                            aumentar:
+                        aumentar:
                             contador++;
                             var divisorXr = AnalizadorDeFunciones.EvaluaFx(xi) - AnalizadorDeFunciones.EvaluaFx(xd);
                             if (divisorXr == 0)
@@ -159,20 +159,20 @@ namespace BISECCION
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
                 double xant = 0;
                 int contador = 0;
-                double xini = double.Parse(xiValue.Text);              
+                double xini = double.Parse(xiValue.Text);
                 if (Math.Abs(AnalizadorDeFunciones.EvaluaFx(xini)) < double.Parse(toleValue.Text))
                     raizResult.Text = xini.ToString();
                 else
                 {
-                    aumentar:
+                aumentar:
                     contador++;
                     var DERIF = AnalizadorDeFunciones.Dx(xini);
-                    if(DERIF == 0)
+                    if (DERIF == 0)
                         warningLabel.Text = "Fx'(xini) = 0. Error por división por cero!.";
                     else
                     {
                         double xr = xini - (AnalizadorDeFunciones.EvaluaFx(xini) / DERIF);
-                        if(xr == 0)
+                        if (xr == 0)
                             warningLabel.Text = "xr = 0. Error por división por cero!.";
                         else
                         {
@@ -220,10 +220,10 @@ namespace BISECCION
                     raizResult.Text = xini.ToString();
                 else
                 {
-                    aumentar:
+                aumentar:
                     contador++;
                     var divisorxr = AnalizadorDeFunciones.EvaluaFx(xini2) - AnalizadorDeFunciones.EvaluaFx(xini);
-                    if(divisorxr == 0)
+                    if (divisorxr == 0)
                         warningLabel.Text = "F(xini2) - F(xini) = 0. Error por división por cero!.";
                     else
                     {
@@ -259,6 +259,52 @@ namespace BISECCION
             }
             else
                 warningLabel.Text = "Ingresa todos los valores antes de ingresar la f(x)";
+        }
+
+        private void generarBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int dimension = int.Parse(dimensionValue.Text);
+                int pointX = 30;
+                int pointY = 30;
+                panel1.Controls.Clear();
+                for (int col = 0; col < dimension; col++)
+                {
+                    for (int row = 0; row < dimension; row++)
+                    {
+                        string nombre = $"({row.ToString()},{col.ToString()})";
+                        TextBox b = new TextBox();
+                        b.Name = nombre;
+                        b.Size = new System.Drawing.Size(100, 100);
+                        pointX += 120;
+                        b.Location = new Point(pointX, pointY);
+                        panel1.Controls.Add(b);
+                        panel1.Show();
+                    }
+                    pointX = 30;
+                    pointY += 30;
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        private double[,] GuardarMatriz(int dimension)
+        {
+            double[,] matriz = new double[dimension, dimension + 1];
+            for (int col = 0; col < dimension; col++)
+            {
+                for (int row = 0; row < dimension; row++)
+                {
+                    Control textBox = panel1.Controls.Find($"({row.ToString()},{col.ToString()})", true).First();
+                    matriz[row, col] = double.Parse((textBox as TextBox).Text);
+                }
+            }
+            return matriz;
         }
     }
 }

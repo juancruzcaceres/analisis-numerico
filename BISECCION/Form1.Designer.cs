@@ -54,17 +54,26 @@
             this.Xi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.functionInput = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.calcularBtn = new System.Windows.Forms.Button();
+            this.tipoCombobox = new System.Windows.Forms.ComboBox();
+            this.generarBtn = new System.Windows.Forms.Button();
+            this.dimensionValue = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(788, 438);
+            this.tabControl1.Size = new System.Drawing.Size(1306, 686);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -98,7 +107,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(780, 412);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "METODOS";
+            this.tabPage1.Text = "UNIDAD 1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // secanteBtn
@@ -308,17 +317,91 @@
             this.functionInput.Size = new System.Drawing.Size(100, 20);
             this.functionInput.TabIndex = 1;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.calcularBtn);
+            this.tabPage2.Controls.Add(this.tipoCombobox);
+            this.tabPage2.Controls.Add(this.generarBtn);
+            this.tabPage2.Controls.Add(this.dimensionValue);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "UNIDAD 2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoSize = true;
+            this.panel1.Location = new System.Drawing.Point(10, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1282, 541);
+            this.panel1.TabIndex = 5;
+            // 
+            // calcularBtn
+            // 
+            this.calcularBtn.Location = new System.Drawing.Point(430, 1);
+            this.calcularBtn.Name = "calcularBtn";
+            this.calcularBtn.Size = new System.Drawing.Size(75, 23);
+            this.calcularBtn.TabIndex = 4;
+            this.calcularBtn.Text = "CALCULAR";
+            this.calcularBtn.UseVisualStyleBackColor = true;
+            // 
+            // tipoCombobox
+            // 
+            this.tipoCombobox.FormattingEnabled = true;
+            this.tipoCombobox.Items.AddRange(new object[] {
+            "Gauss-Jordan",
+            "Gauss-Seidel"});
+            this.tipoCombobox.Location = new System.Drawing.Point(293, 3);
+            this.tipoCombobox.Name = "tipoCombobox";
+            this.tipoCombobox.Size = new System.Drawing.Size(121, 21);
+            this.tipoCombobox.TabIndex = 3;
+            // 
+            // generarBtn
+            // 
+            this.generarBtn.Location = new System.Drawing.Point(192, 4);
+            this.generarBtn.Name = "generarBtn";
+            this.generarBtn.Size = new System.Drawing.Size(75, 23);
+            this.generarBtn.TabIndex = 2;
+            this.generarBtn.Text = "GENERAR";
+            this.generarBtn.UseVisualStyleBackColor = true;
+            this.generarBtn.Click += new System.EventHandler(this.generarBtn_Click);
+            // 
+            // dimensionValue
+            // 
+            this.dimensionValue.Location = new System.Drawing.Point(85, 4);
+            this.dimensionValue.Name = "dimensionValue";
+            this.dimensionValue.Size = new System.Drawing.Size(100, 20);
+            this.dimensionValue.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "DIMENSION:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1300, 626);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -351,6 +434,13 @@
         private System.Windows.Forms.Button reglafalsaBtn;
         private System.Windows.Forms.Button secanteBtn;
         private System.Windows.Forms.Button newtonBtn;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button calcularBtn;
+        private System.Windows.Forms.ComboBox tipoCombobox;
+        private System.Windows.Forms.Button generarBtn;
+        private System.Windows.Forms.TextBox dimensionValue;
+        private System.Windows.Forms.Label label3;
     }
 }
 
