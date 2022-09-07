@@ -269,9 +269,9 @@ namespace BISECCION
                 int pointX = 30;
                 int pointY = 30;
                 panel1.Controls.Clear();
-                for (int col = 0; col < dimension; col++)
+                for (int row = 0; row < dimension; row++)
                 {
-                    for (int row = 0; row < dimension; row++)
+                    for (int col = 0; col < dimension+1; col++)
                     {
                         string nombre = $"({row.ToString()},{col.ToString()})";
                         TextBox b = new TextBox();
@@ -295,7 +295,7 @@ namespace BISECCION
 
         private double[,] GuardarMatriz(int dimension)
         {
-            double[,] matriz = new double[dimension, dimension + 1];
+            double[,] matriz = new double[dimension, dimension+1];
             for (int col = 0; col < dimension; col++)
             {
                 for (int row = 0; row < dimension; row++)
@@ -333,7 +333,41 @@ namespace BISECCION
 
         public double[] GaussJordan(int dimension, double[,] matriz)
         {
-            return new double[1];
+            double coeficienteP = 0;
+            for (int rowDiag = 0; rowDiag < dimension; rowDiag++)
+            {
+                for (int col = 0; col < dimension; col++)
+                {
+                    if(rowDiag == col)
+                    {
+                        coeficienteP = matriz[rowDiag, col];
+                    }
+                    matriz[rowDiag,col] = matriz[rowDiag, col] / coeficienteP;
+                }
+
+                int column = 0;
+                for (int row = 0; row < dimension; row++)
+                {
+                    if (rowDiag != row)
+                    {
+                        var coeficiente = matriz[row, column];
+                        column++;
+                        for (int columna = 0; columna < dimension; columna++)
+                        {
+                            matriz[row, columna] = matriz[row, columna] - (coeficiente * matriz[rowDiag, columna]);
+                        }
+                    }
+                }
+            }
+            double[] resultado = new double[dimension];
+            for (int rowResultado = 0; rowResultado < dimension; rowResultado++)
+            {
+                resultado[rowResultado] = matriz[rowResultado, dimension];
+                //Control textBox = panel1.Controls.Find($"({rowResultado.ToString()}, {dimension.ToString()})", true).First();
+                //textBox.Text = resultado[rowResultado].ToString();
+            }
+
+            return resultado;
         }
 
         public double[] GaussSeidel(int dimension, double[,] matriz)
