@@ -296,7 +296,7 @@ namespace BISECCION
         private double[,] GuardarMatriz(int dimension)
         {
             double[,] matriz = new double[dimension, dimension+1];
-            for (int col = 0; col < dimension; col++)
+            for (int col = 0; col < dimension+1; col++)
             {
                 for (int row = 0; row < dimension; row++)
                 {
@@ -334,9 +334,10 @@ namespace BISECCION
         public double[] GaussJordan(int dimension, double[,] matriz)
         {
             double coeficienteP = 0;
+            int column = 0;
             for (int rowDiag = 0; rowDiag < dimension; rowDiag++)
             {
-                for (int col = 0; col < dimension; col++)
+                for (int col = 0; col < dimension+1; col++)
                 {
                     if(rowDiag == col)
                     {
@@ -345,19 +346,18 @@ namespace BISECCION
                     matriz[rowDiag,col] = matriz[rowDiag, col] / coeficienteP;
                 }
 
-                int column = 0;
                 for (int row = 0; row < dimension; row++)
                 {
                     if (rowDiag != row)
                     {
                         var coeficiente = matriz[row, column];
-                        column++;
-                        for (int columna = 0; columna < dimension; columna++)
+                        for (int columna = 0; columna <= dimension; columna++)
                         {
                             matriz[row, columna] = matriz[row, columna] - (coeficiente * matriz[rowDiag, columna]);
                         }
                     }
                 }
+                column++;
             }
             double[] resultado = new double[dimension];
             for (int rowResultado = 0; rowResultado < dimension; rowResultado++)
