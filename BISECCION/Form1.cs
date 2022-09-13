@@ -311,27 +311,25 @@ namespace BISECCION
         {
             int dimension = int.Parse(dimensionValue.Text);
             double[,] matriz = GuardarMatriz(dimension);
-            double[] resultado = new double[dimension];
             switch (tipoCombobox.SelectedIndex)
             {
                 case 0:
                     //metodo Gauss Jordan
-                    resultado = GaussJordan(dimension, matriz);
+                    GaussJordan(dimension, matriz);
                     break;
 
                 case 1:
                     //metodo Gauss Seidel
-                    resultado = GaussSeidel(dimension, matriz);
+                    GaussSeidel(dimension, matriz);
                     break;
 
                 default:
                     break;
             }
 
-
         }
 
-        public double[] GaussJordan(int dimension, double[,] matriz)
+        public double[,] GaussJordan(int dimension, double[,] matriz)
         {
             double coeficienteP = 0;
             int column = 0;
@@ -359,15 +357,19 @@ namespace BISECCION
                 }
                 column++;
             }
-            double[] resultado = new double[dimension];
+
+            int contador = 0;
             for (int rowResultado = 0; rowResultado < dimension; rowResultado++)
             {
-                resultado[rowResultado] = matriz[rowResultado, dimension];
-                //Control textBox = panel1.Controls.Find($"({rowResultado.ToString()}, {dimension.ToString()})", true).First();
-                //textBox.Text = resultado[rowResultado].ToString();
+                for (int colResultado = 0; colResultado < dimension+1; colResultado++)
+                {
+                    Control textBox = panel1.Controls[contador];
+                    textBox.Text = matriz[rowResultado, colResultado].ToString();
+                    contador++;
+                }
             }
 
-            return resultado;
+            return matriz;
         }
 
         public double[] GaussSeidel(int dimension, double[,] matriz)
