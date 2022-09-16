@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Calculus;
 
-namespace BISECCION
+namespace AnalisisNumerico
 {
-    public partial class Form1 : Form
+    public partial class AnalisisNumerico : Form
     {
-        public Form1()
+        public AnalisisNumerico()
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace BISECCION
                 Calculo AnalizadorDeFunciones = new Calculo();
                 string fx = functionInput.Text;
                 AnalizadorDeFunciones.Sintaxis(fx, 'x');
-            evaluar:
+                evaluar:
                 if (xiValue.Text == "" || xdValue.Text == "")
                     MessageBox.Show("Ingrese nuevos valores para xi y xd");
                 else
@@ -374,7 +374,60 @@ namespace BISECCION
 
         public double[] GaussSeidel(int dimension, double[,] matriz)
         {
-            return new double[1];
+            double tolerancia = 0.0001;
+            bool menorTolerancia = false;
+            int contador = 0;
+            double[] vectorResultado = new double[dimension];
+            vectorResultado.Initialize();
+            double[] vectorAnterior = new double[dimension];
+
+            while (contador <= 100 || !menorTolerancia)
+            {
+                contador++;
+                if (contador>1)
+                {
+                    vectorResultado.CopyTo(vectorAnterior, 0);
+                }
+
+                for (int row = 0; row < dimension; row++)
+                {
+                    var resultado = matriz[row, dimension];
+                    var coeficienteIncognita = matriz[row, row];
+
+                    for (int col = 0; col < dimension; col++)
+                    {
+                        if (row != col)
+                        {
+                            resultado = resultado - (matriz[row, col] * vectorResultado[col]);
+                        }
+                    }
+
+                    coeficienteIncognita = resultado / coeficienteIncognita;
+                    vectorResultado[row] = coeficienteIncognita;
+                }
+
+                int contadorMismoResultado = 0;
+                for (int i = 0; i < dimension; i++)
+                {
+                    if (Math.Abs(vectorResultado[i] - vectorAnterior[i]) < tolerancia)
+                    {
+                        contadorMismoResultado++;
+                    }
+                }
+
+                menorTolerancia = contadorMismoResultado == dimension;
+            }
+
+            resultadoSeidel.Text = vectorResultado.ToString();
+
+            if (contador <= 100)
+            {
+                return vectorResultado;
+            } else {
+                MessageBox.Show("El programa superó las iteraciones limite!!");
+                return null;
+            }
+
         }
     }
 }

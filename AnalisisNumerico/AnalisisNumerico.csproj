@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A0DE510A-DB3D-48EE-89AE-F88CF7A1BE38}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BISECCION</RootNamespace>
-    <AssemblyName>BISECCION</AssemblyName>
+    <RootNamespace>AnalisisNumerico</RootNamespace>
+    <AssemblyName>AnalisisNumerico</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -68,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,6 +1,6 @@
-﻿namespace BISECCION
+﻿namespace AnalisisNumerico
 {
-    partial class Form1
+    partial class AnalisisNumerico
     {
         /// <summary>
         /// Required designer variable.
@@ -61,9 +61,11 @@
             this.generarBtn = new System.Windows.Forms.Button();
             this.dimensionValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.resultadoSeidel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -337,6 +339,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.resultadoSeidel);
             this.panel1.Location = new System.Drawing.Point(10, 51);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1282, 541);
@@ -389,20 +392,31 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "DIMENSION:";
             // 
-            // Form1
+            // resultadoSeidel
+            // 
+            this.resultadoSeidel.AutoSize = true;
+            this.resultadoSeidel.Location = new System.Drawing.Point(4, 512);
+            this.resultadoSeidel.Name = "resultadoSeidel";
+            this.resultadoSeidel.Size = new System.Drawing.Size(35, 13);
+            this.resultadoSeidel.TabIndex = 0;
+            this.resultadoSeidel.Text = "label4";
+            // 
+            // AnalisisNumerico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 626);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "AnalisisNumerico";
+            this.Text = "Analisis Numerico";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -442,6 +456,7 @@
         private System.Windows.Forms.Button generarBtn;
         private System.Windows.Forms.TextBox dimensionValue;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label resultadoSeidel;
     }
 }
 
