@@ -381,7 +381,7 @@ namespace AnalisisNumerico
             vectorResultado.Initialize();
             double[] vectorAnterior = new double[dimension];
 
-            while (contador <= 100 || !menorTolerancia)
+            while (contador <= 100 && !menorTolerancia)
             {
                 contador++;
                 if (contador>1)
@@ -418,13 +418,19 @@ namespace AnalisisNumerico
                 menorTolerancia = contadorMismoResultado == dimension;
             }
 
-            resultadoSeidel.Text = vectorResultado.ToString();
+            iteracResult.Text = contador.ToString();
+
+            resultadoSeidel.Text = "";
+            for (int i = 0; i < vectorResultado.Length; i++)
+            {
+                resultadoSeidel.Text += "X"+ (i+1).ToString() + " = " + Math.Round(vectorResultado[i],5).ToString() + "\n";
+            }
 
             if (contador <= 100)
             {
                 return vectorResultado;
             } else {
-                MessageBox.Show("El programa superó las iteraciones limite!!");
+                resultadoSeidel.Text = "El programa superó las iteraciones limite por lo tanto es divergente.";
                 return null;
             }
 

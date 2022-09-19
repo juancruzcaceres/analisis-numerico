@@ -56,16 +56,18 @@
             this.functionInput = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.resultadoSeidel = new System.Windows.Forms.Label();
             this.calcularBtn = new System.Windows.Forms.Button();
             this.tipoCombobox = new System.Windows.Forms.ComboBox();
             this.generarBtn = new System.Windows.Forms.Button();
             this.dimensionValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.resultadoSeidel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.iteracResult = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -321,8 +323,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.iteracResult);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.calcularBtn);
+            this.tabPage2.Controls.Add(this.resultadoSeidel);
             this.tabPage2.Controls.Add(this.tipoCombobox);
             this.tabPage2.Controls.Add(this.generarBtn);
             this.tabPage2.Controls.Add(this.dimensionValue);
@@ -339,11 +345,18 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.resultadoSeidel);
             this.panel1.Location = new System.Drawing.Point(10, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1282, 541);
+            this.panel1.Size = new System.Drawing.Size(1282, 412);
             this.panel1.TabIndex = 5;
+            // 
+            // resultadoSeidel
+            // 
+            this.resultadoSeidel.AutoSize = true;
+            this.resultadoSeidel.Location = new System.Drawing.Point(82, 496);
+            this.resultadoSeidel.Name = "resultadoSeidel";
+            this.resultadoSeidel.Size = new System.Drawing.Size(0, 13);
+            this.resultadoSeidel.TabIndex = 0;
             // 
             // calcularBtn
             // 
@@ -392,14 +405,31 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "DIMENSION:";
             // 
-            // resultadoSeidel
+            // label4
             // 
-            this.resultadoSeidel.AutoSize = true;
-            this.resultadoSeidel.Location = new System.Drawing.Point(4, 512);
-            this.resultadoSeidel.Name = "resultadoSeidel";
-            this.resultadoSeidel.Size = new System.Drawing.Size(35, 13);
-            this.resultadoSeidel.TabIndex = 0;
-            this.resultadoSeidel.Text = "label4";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 496);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Resultado:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 466);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Cantidad de Iteraciones:";
+            // 
+            // iteracResult
+            // 
+            this.iteracResult.AutoSize = true;
+            this.iteracResult.Location = new System.Drawing.Point(150, 466);
+            this.iteracResult.Name = "iteracResult";
+            this.iteracResult.Size = new System.Drawing.Size(0, 13);
+            this.iteracResult.TabIndex = 3;
             // 
             // AnalisisNumerico
             // 
@@ -415,8 +445,6 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -457,6 +485,9 @@
         private System.Windows.Forms.TextBox dimensionValue;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label resultadoSeidel;
+        private System.Windows.Forms.Label iteracResult;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }
 
