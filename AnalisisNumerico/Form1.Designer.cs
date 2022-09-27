@@ -55,25 +55,47 @@
             this.label1 = new System.Windows.Forms.Label();
             this.functionInput = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.iteracResult = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.resultadoSeidel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.calcularBtn = new System.Windows.Forms.Button();
+            this.resultadoSeidel = new System.Windows.Forms.Label();
             this.tipoCombobox = new System.Windows.Forms.ComboBox();
             this.generarBtn = new System.Windows.Forms.Button();
             this.dimensionValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.iteracResult = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panelGrafica = new System.Windows.Forms.Panel();
+            this.panelPuntos = new System.Windows.Forms.Panel();
+            this.efectAjusteResult = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.efectividadResult = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.funcionResult = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.calcularRectaBtn = new System.Windows.Forms.Button();
+            this.metodoCombobox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cargarBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.yResult = new System.Windows.Forms.TextBox();
+            this.xResult = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -341,6 +363,23 @@
             this.tabPage2.Text = "UNIDAD 2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // iteracResult
+            // 
+            this.iteracResult.AutoSize = true;
+            this.iteracResult.Location = new System.Drawing.Point(150, 466);
+            this.iteracResult.Name = "iteracResult";
+            this.iteracResult.Size = new System.Drawing.Size(0, 13);
+            this.iteracResult.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 466);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Cantidad de Iteraciones:";
+            // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
@@ -350,13 +389,14 @@
             this.panel1.Size = new System.Drawing.Size(1282, 412);
             this.panel1.TabIndex = 5;
             // 
-            // resultadoSeidel
+            // label4
             // 
-            this.resultadoSeidel.AutoSize = true;
-            this.resultadoSeidel.Location = new System.Drawing.Point(82, 496);
-            this.resultadoSeidel.Name = "resultadoSeidel";
-            this.resultadoSeidel.Size = new System.Drawing.Size(0, 13);
-            this.resultadoSeidel.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 496);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Resultado:";
             // 
             // calcularBtn
             // 
@@ -367,6 +407,14 @@
             this.calcularBtn.Text = "CALCULAR";
             this.calcularBtn.UseVisualStyleBackColor = true;
             this.calcularBtn.Click += new System.EventHandler(this.calcularBtn_Click);
+            // 
+            // resultadoSeidel
+            // 
+            this.resultadoSeidel.AutoSize = true;
+            this.resultadoSeidel.Location = new System.Drawing.Point(82, 496);
+            this.resultadoSeidel.Name = "resultadoSeidel";
+            this.resultadoSeidel.Size = new System.Drawing.Size(0, 13);
+            this.resultadoSeidel.TabIndex = 0;
             // 
             // tipoCombobox
             // 
@@ -405,31 +453,190 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "DIMENSION:";
             // 
-            // label4
+            // tabPage3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 496);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Resultado:";
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.panelGrafica);
+            this.tabPage3.Controls.Add(this.panelPuntos);
+            this.tabPage3.Controls.Add(this.efectAjusteResult);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.efectividadResult);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.funcionResult);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.calcularRectaBtn);
+            this.tabPage3.Controls.Add(this.metodoCombobox);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.cargarBtn);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.yResult);
+            this.tabPage3.Controls.Add(this.xResult);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "UNIDAD 3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // panelGrafica
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 466);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Cantidad de Iteraciones:";
+            this.panelGrafica.Location = new System.Drawing.Point(381, 7);
+            this.panelGrafica.Name = "panelGrafica";
+            this.panelGrafica.Size = new System.Drawing.Size(903, 585);
+            this.panelGrafica.TabIndex = 15;
             // 
-            // iteracResult
+            // panelPuntos
             // 
-            this.iteracResult.AutoSize = true;
-            this.iteracResult.Location = new System.Drawing.Point(150, 466);
-            this.iteracResult.Name = "iteracResult";
-            this.iteracResult.Size = new System.Drawing.Size(0, 13);
-            this.iteracResult.TabIndex = 3;
+            this.panelPuntos.Location = new System.Drawing.Point(292, 46);
+            this.panelPuntos.Name = "panelPuntos";
+            this.panelPuntos.Size = new System.Drawing.Size(68, 141);
+            this.panelPuntos.TabIndex = 14;
+            // 
+            // efectAjusteResult
+            // 
+            this.efectAjusteResult.AutoSize = true;
+            this.efectAjusteResult.Location = new System.Drawing.Point(121, 170);
+            this.efectAjusteResult.Name = "efectAjusteResult";
+            this.efectAjusteResult.Size = new System.Drawing.Size(41, 13);
+            this.efectAjusteResult.TabIndex = 13;
+            this.efectAjusteResult.Text = "label12";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 171);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(109, 13);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Efectividad de ajuste:";
+            // 
+            // efectividadResult
+            // 
+            this.efectividadResult.AutoSize = true;
+            this.efectividadResult.Location = new System.Drawing.Point(91, 145);
+            this.efectividadResult.Name = "efectividadResult";
+            this.efectividadResult.Size = new System.Drawing.Size(41, 13);
+            this.efectividadResult.TabIndex = 11;
+            this.efectividadResult.Text = "label11";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 145);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Efectividad (%):";
+            // 
+            // funcionResult
+            // 
+            this.funcionResult.AutoSize = true;
+            this.funcionResult.Location = new System.Drawing.Point(61, 121);
+            this.funcionResult.Name = "funcionResult";
+            this.funcionResult.Size = new System.Drawing.Size(41, 13);
+            this.funcionResult.TabIndex = 9;
+            this.funcionResult.Text = "label10";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Función:";
+            // 
+            // calcularRectaBtn
+            // 
+            this.calcularRectaBtn.Location = new System.Drawing.Point(197, 76);
+            this.calcularRectaBtn.Name = "calcularRectaBtn";
+            this.calcularRectaBtn.Size = new System.Drawing.Size(75, 23);
+            this.calcularRectaBtn.TabIndex = 7;
+            this.calcularRectaBtn.Text = "CALCULAR";
+            this.calcularRectaBtn.UseVisualStyleBackColor = true;
+            this.calcularRectaBtn.Click += new System.EventHandler(this.calcularRectaBtn_Click);
+            // 
+            // metodoCombobox
+            // 
+            this.metodoCombobox.FormattingEnabled = true;
+            this.metodoCombobox.Items.AddRange(new object[] {
+            "Regresión Lineal"});
+            this.metodoCombobox.Location = new System.Drawing.Point(61, 78);
+            this.metodoCombobox.Name = "metodoCombobox";
+            this.metodoCombobox.Size = new System.Drawing.Size(121, 21);
+            this.metodoCombobox.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 81);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Método:";
+            // 
+            // cargarBtn
+            // 
+            this.cargarBtn.Location = new System.Drawing.Point(149, 42);
+            this.cargarBtn.Name = "cargarBtn";
+            this.cargarBtn.Size = new System.Drawing.Size(75, 23);
+            this.cargarBtn.TabIndex = 4;
+            this.cargarBtn.Text = "CARGAR";
+            this.cargarBtn.UseVisualStyleBackColor = true;
+            this.cargarBtn.Click += new System.EventHandler(this.cargarBtn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(72, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Y:";
+            // 
+            // yResult
+            // 
+            this.yResult.Location = new System.Drawing.Point(95, 43);
+            this.yResult.Name = "yResult";
+            this.yResult.Size = new System.Drawing.Size(37, 20);
+            this.yResult.TabIndex = 2;
+            // 
+            // xResult
+            // 
+            this.xResult.Location = new System.Drawing.Point(29, 43);
+            this.xResult.Name = "xResult";
+            this.xResult.Size = new System.Drawing.Size(37, 20);
+            this.xResult.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "X:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "UNIDAD 4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(258, 13);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "REGRESIÓN LINEAL POR MÍNIMOS CUADRADOS";
             // 
             // AnalisisNumerico
             // 
@@ -445,6 +652,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -488,6 +697,25 @@
         private System.Windows.Forms.Label iteracResult;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button calcularRectaBtn;
+        private System.Windows.Forms.ComboBox metodoCombobox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button cargarBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox yResult;
+        private System.Windows.Forms.TextBox xResult;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panelGrafica;
+        private System.Windows.Forms.Panel panelPuntos;
+        private System.Windows.Forms.Label efectAjusteResult;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label efectividadResult;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label funcionResult;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
     }
 }
 

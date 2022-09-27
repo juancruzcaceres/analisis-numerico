@@ -435,5 +435,25 @@ namespace AnalisisNumerico
             }
 
         }
+
+        private void cargarBtn_Click(object sender, EventArgs e)
+        {
+            List<double[]> PuntosCargados = new List<double[]>();
+            
+        }
+
+        private void calcularRectaBtn_Click(object sender, EventArgs e)
+        {
+            switch (metodoCombobox.SelectedIndex)
+            {
+                case 0:
+                    //Regresión Lineal
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
