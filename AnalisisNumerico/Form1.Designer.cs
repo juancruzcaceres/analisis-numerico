@@ -84,6 +84,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
+            this.warnLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -455,6 +456,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.warnLabel);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.panelGrafica);
             this.tabPage3.Controls.Add(this.panelPuntos);
@@ -638,6 +640,15 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "REGRESIÓN LINEAL POR MÍNIMOS CUADRADOS";
             // 
+            // warnLabel
+            // 
+            this.warnLabel.AutoSize = true;
+            this.warnLabel.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel.Location = new System.Drawing.Point(5, 66);
+            this.warnLabel.Name = "warnLabel";
+            this.warnLabel.Size = new System.Drawing.Size(0, 13);
+            this.warnLabel.TabIndex = 17;
+            // 
             // AnalisisNumerico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,6 +727,7 @@
         private System.Windows.Forms.Label funcionResult;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label warnLabel;
     }
 }
 

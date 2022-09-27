@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.Globalization;
+using AnalisisNumerico;
 
 namespace Analisis_Numerico
 {
@@ -33,6 +34,8 @@ namespace Analisis_Numerico
         public Graficador()
         {
             InitializeComponent();
+            Graficador graficador = new Graficador();
+           
         }
 		
 		/// <summary>

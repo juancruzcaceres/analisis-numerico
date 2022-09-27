@@ -438,7 +438,25 @@ namespace AnalisisNumerico
 
         private void cargarBtn_Click(object sender, EventArgs e)
         {
-            List<double[]> PuntosCargados = new List<double[]>();
+            List <Points> PuntosCargados = new List<Points>();
+            if (xResult.Text !="" && yResult.Text!="")
+            {
+                Points puntoNuevo = new Points() { x = double.Parse(xResult.Text), y = double.Parse(yResult.Text) };
+                PuntosCargados.Add(puntoNuevo);
+                Label puntoIngresado = new Label();
+                puntoIngresado.Text = puntoNuevo.ToString();
+                // puntoIngresado.Location = new Point(0, ); ver como hacer para bajar en Y el siguiente label pq se crea atras del primero
+                puntoIngresado.Size = new Size(100, 16);
+                puntoIngresado.Font = new Font("Arial", 11);
+                panelPuntos.Controls.Add(puntoIngresado);
+                panelPuntos.Show();
+                xResult.Clear();
+                yResult.Clear();
+
+            } else
+            {
+                warningLabel.Text = "Debe ingresar un valor al punto";
+            }
             
         }
 
@@ -456,4 +474,17 @@ namespace AnalisisNumerico
             }
         }
     }
+
+    class Points
+    {
+        public double x { get; set; }
+        public double y { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("({0}, {1})", x, y);
+        }
+    }
+
+
 }
