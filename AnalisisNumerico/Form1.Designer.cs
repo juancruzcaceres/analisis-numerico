@@ -66,6 +66,8 @@
             this.dimensionValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.warnLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelPuntos = new System.Windows.Forms.Panel();
             this.efectAjusteResult = new System.Windows.Forms.Label();
@@ -83,8 +85,8 @@
             this.xResult = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
-            this.warnLabel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -105,6 +107,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.secanteBtn);
             this.tabPage1.Controls.Add(this.newtonBtn);
             this.tabPage1.Controls.Add(this.reglafalsaBtn);
@@ -149,7 +153,7 @@
             // 
             // newtonBtn
             // 
-            this.newtonBtn.Location = new System.Drawing.Point(209, 154);
+            this.newtonBtn.Location = new System.Drawing.Point(222, 154);
             this.newtonBtn.Name = "newtonBtn";
             this.newtonBtn.Size = new System.Drawing.Size(123, 23);
             this.newtonBtn.TabIndex = 23;
@@ -159,7 +163,7 @@
             // 
             // reglafalsaBtn
             // 
-            this.reglafalsaBtn.Location = new System.Drawing.Point(104, 154);
+            this.reglafalsaBtn.Location = new System.Drawing.Point(95, 154);
             this.reglafalsaBtn.Name = "reglafalsaBtn";
             this.reglafalsaBtn.Size = new System.Drawing.Size(90, 23);
             this.reglafalsaBtn.TabIndex = 22;
@@ -482,6 +486,24 @@
             this.tabPage3.Text = "UNIDAD 3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // warnLabel
+            // 
+            this.warnLabel.AutoSize = true;
+            this.warnLabel.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel.Location = new System.Drawing.Point(5, 66);
+            this.warnLabel.Name = "warnLabel";
+            this.warnLabel.Size = new System.Drawing.Size(0, 13);
+            this.warnLabel.TabIndex = 17;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(258, 13);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "REGRESIÓN LINEAL POR MÍNIMOS CUADRADOS";
+            // 
             // panelGrafica
             // 
             this.panelGrafica.Location = new System.Drawing.Point(381, 7);
@@ -631,23 +653,23 @@
             this.tabPage4.Text = "UNIDAD 4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // label13
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 7);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(258, 13);
-            this.label12.TabIndex = 16;
-            this.label12.Text = "REGRESIÓN LINEAL POR MÍNIMOS CUADRADOS";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(30, 138);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "MÉTODOS CERRADOS";
             // 
-            // warnLabel
+            // label14
             // 
-            this.warnLabel.AutoSize = true;
-            this.warnLabel.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel.Location = new System.Drawing.Point(5, 66);
-            this.warnLabel.Name = "warnLabel";
-            this.warnLabel.Size = new System.Drawing.Size(0, 13);
-            this.warnLabel.TabIndex = 17;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(273, 138);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "MÉTODOS ABIERTOS";
             // 
             // AnalisisNumerico
             // 
@@ -728,6 +750,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label warnLabel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
     }
 }
 
