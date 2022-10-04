@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Calculus;
+using Analisis_Numerico;
 
 namespace AnalisisNumerico
 {
@@ -16,8 +17,8 @@ namespace AnalisisNumerico
         public AnalisisNumerico()
         {
             InitializeComponent();
-
-
+            panelGrafica.Controls.Add(graficador);
+            graficador.Dock = DockStyle.Fill;
 
         }
 
@@ -436,16 +437,20 @@ namespace AnalisisNumerico
 
         }
 
+        Graficador graficador = new Graficador();
+        List<Points> PuntosCargados = new List<Points>();
         private void cargarBtn_Click(object sender, EventArgs e)
         {
-            List <Points> PuntosCargados = new List<Points>();
+            
             if (xResult.Text !="" && yResult.Text!="")
             {
                 Points puntoNuevo = new Points() { x = double.Parse(xResult.Text), y = double.Parse(yResult.Text) };
                 PuntosCargados.Add(puntoNuevo);
                 Label puntoIngresado = new Label();
                 puntoIngresado.Text = puntoNuevo.ToString();
-                // puntoIngresado.Location = new Point(0, ); ver como hacer para bajar en Y el siguiente label pq se crea atras del primero
+                int cantidadElementos = PuntosCargados.Count();
+                int puntoY = (cantidadElementos - 1) * 17;
+                puntoIngresado.Location = new Point(0, puntoY);
                 puntoIngresado.Size = new Size(100, 16);
                 puntoIngresado.Font = new Font("Arial", 11);
                 panelPuntos.Controls.Add(puntoIngresado);
@@ -466,12 +471,50 @@ namespace AnalisisNumerico
             {
                 case 0:
                     //Regresión Lineal
+                    int cantidadPuntos = PuntosCargados.Count();
+                    double sumatoriaX = PuntosCargados.Sum(punto => punto.x);
+                    double sumatoriaY = PuntosCargados.Sum(punto => punto.y);
+                    double sumatoriaXY = PuntosCargados.Sum(punto => punto.x * punto.y);
+                    double sumatoriaX2 = PuntosCargados.Sum(punto => punto.x * punto.x);
+
+                    var a1 = (cantidadPuntos * sumatoriaXY - sumatoriaX * sumatoriaY) / (cantidadPuntos * sumatoriaX2 - (sumatoriaX * sumatoriaX));
+                    var a0 = (sumatoriaY / cantidadPuntos) - a1 * (sumatoriaX / cantidadPuntos);
+
+                    var st = PuntosCargados.Sum(punto => (sumatoriaY / cantidadPuntos - punto.y)* (sumatoriaY / cantidadPuntos - punto.y));
+                    var sr = PuntosCargados.Sum(punto => (a1 * punto.x + a0 - punto.y) * (a1 * punto.x + a0 - punto.y));
+
+                    var r = Math.Sqrt((st - sr) / st) * 100;
+
+                    double[] scale = new double[3];
+                    scale[0] = -10;
+                    scale[1] = 10;
+                    scale[2] = 1;
+
+                    string signoSegundoTermino = a0 * -1 == -a0 ? "+" : "-";
+                    string funcion = a1.ToString() + "*x" + signoSegundoTermino + a0.ToString();
+
+                    List<double[]> puntos = PuntosCargados.Cast<double[]>().ToList();
+
+                    graficador.Graficar(puntos, funcion , scale);
                     break;
                 case 1:
                     break;
                 default:
                     break;
             }
+        }
+
+        private void borrarPuntosBtn_Click(object sender, EventArgs e)
+        {
+            PuntosCargados.Clear();
+            panelPuntos.Controls.Clear();
+        }
+
+        private void borrarUltimoBtn_Click(object sender, EventArgs e)
+        {
+            PuntosCargados.Remove(PuntosCargados[PuntosCargados.Count() - 1]);
+            panelPuntos.Controls.RemoveAt(panelPuntos.Controls.Count - 1);
+            panelPuntos.Update();
         }
     }
 

@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.secanteBtn = new System.Windows.Forms.Button();
             this.newtonBtn = new System.Windows.Forms.Button();
             this.reglafalsaBtn = new System.Windows.Forms.Button();
@@ -66,6 +68,19 @@
             this.dimensionValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.efectividadRes = new System.Windows.Forms.Label();
+            this.correlacionResult = new System.Windows.Forms.Label();
+            this.funcionRes = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.borrarUltimoBtn = new System.Windows.Forms.Button();
+            this.borrarPuntosBtn = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.toleranciaValue = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.warnLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
@@ -85,8 +100,6 @@
             this.xResult = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -140,6 +153,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "UNIDAD 1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(273, 138);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "MÉTODOS ABIERTOS";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(30, 138);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "MÉTODOS CERRADOS";
             // 
             // secanteBtn
             // 
@@ -460,6 +491,19 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.efectividadRes);
+            this.tabPage3.Controls.Add(this.correlacionResult);
+            this.tabPage3.Controls.Add(this.funcionRes);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.borrarUltimoBtn);
+            this.tabPage3.Controls.Add(this.borrarPuntosBtn);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.toleranciaValue);
+            this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.warnLabel);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.panelGrafica);
@@ -486,11 +530,130 @@
             this.tabPage3.Text = "UNIDAD 3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(7, 27);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(109, 13);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Datos de entrada:";
+            // 
+            // efectividadRes
+            // 
+            this.efectividadRes.AutoSize = true;
+            this.efectividadRes.Location = new System.Drawing.Point(502, 75);
+            this.efectividadRes.Name = "efectividadRes";
+            this.efectividadRes.Size = new System.Drawing.Size(13, 13);
+            this.efectividadRes.TabIndex = 29;
+            this.efectividadRes.Text = "--";
+            // 
+            // correlacionResult
+            // 
+            this.correlacionResult.AutoSize = true;
+            this.correlacionResult.Location = new System.Drawing.Point(454, 52);
+            this.correlacionResult.Name = "correlacionResult";
+            this.correlacionResult.Size = new System.Drawing.Size(13, 13);
+            this.correlacionResult.TabIndex = 28;
+            this.correlacionResult.Text = "--";
+            // 
+            // funcionRes
+            // 
+            this.funcionRes.AutoSize = true;
+            this.funcionRes.Location = new System.Drawing.Point(483, 30);
+            this.funcionRes.Name = "funcionRes";
+            this.funcionRes.Size = new System.Drawing.Size(13, 13);
+            this.funcionRes.TabIndex = 27;
+            this.funcionRes.Text = "--";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(384, 75);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(111, 13);
+            this.label20.TabIndex = 26;
+            this.label20.Text = "Efectividad del ajuste:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(384, 52);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(63, 13);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "Correlación:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(384, 31);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(92, 13);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Función obtenida:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(381, 4);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(99, 13);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Datos de salida:";
+            // 
+            // borrarUltimoBtn
+            // 
+            this.borrarUltimoBtn.Location = new System.Drawing.Point(224, 283);
+            this.borrarUltimoBtn.Name = "borrarUltimoBtn";
+            this.borrarUltimoBtn.Size = new System.Drawing.Size(115, 23);
+            this.borrarUltimoBtn.TabIndex = 22;
+            this.borrarUltimoBtn.Text = "BORRAR ULTIMO";
+            this.borrarUltimoBtn.UseVisualStyleBackColor = true;
+            this.borrarUltimoBtn.Click += new System.EventHandler(this.borrarUltimoBtn_Click);
+            // 
+            // borrarPuntosBtn
+            // 
+            this.borrarPuntosBtn.Location = new System.Drawing.Point(224, 254);
+            this.borrarPuntosBtn.Name = "borrarPuntosBtn";
+            this.borrarPuntosBtn.Size = new System.Drawing.Size(115, 23);
+            this.borrarPuntosBtn.TabIndex = 21;
+            this.borrarPuntosBtn.Text = "BORRAR TODOS";
+            this.borrarPuntosBtn.UseVisualStyleBackColor = true;
+            this.borrarPuntosBtn.Click += new System.EventHandler(this.borrarPuntosBtn_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(32, 254);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 13);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "Puntos ingresados:";
+            // 
+            // toleranciaValue
+            // 
+            this.toleranciaValue.Location = new System.Drawing.Point(97, 100);
+            this.toleranciaValue.Name = "toleranciaValue";
+            this.toleranciaValue.Size = new System.Drawing.Size(100, 20);
+            this.toleranciaValue.TabIndex = 19;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(33, 103);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 13);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Tolerancia:";
+            // 
             // warnLabel
             // 
             this.warnLabel.AutoSize = true;
             this.warnLabel.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel.Location = new System.Drawing.Point(5, 66);
+            this.warnLabel.Location = new System.Drawing.Point(27, 89);
             this.warnLabel.Name = "warnLabel";
             this.warnLabel.Size = new System.Drawing.Size(0, 13);
             this.warnLabel.TabIndex = 17;
@@ -506,14 +669,14 @@
             // 
             // panelGrafica
             // 
-            this.panelGrafica.Location = new System.Drawing.Point(381, 7);
+            this.panelGrafica.Location = new System.Drawing.Point(381, 110);
             this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Size = new System.Drawing.Size(903, 585);
+            this.panelGrafica.Size = new System.Drawing.Size(903, 482);
             this.panelGrafica.TabIndex = 15;
             // 
             // panelPuntos
             // 
-            this.panelPuntos.Location = new System.Drawing.Point(292, 46);
+            this.panelPuntos.Location = new System.Drawing.Point(141, 254);
             this.panelPuntos.Name = "panelPuntos";
             this.panelPuntos.Size = new System.Drawing.Size(68, 141);
             this.panelPuntos.TabIndex = 14;
@@ -521,16 +684,16 @@
             // efectAjusteResult
             // 
             this.efectAjusteResult.AutoSize = true;
-            this.efectAjusteResult.Location = new System.Drawing.Point(121, 170);
+            this.efectAjusteResult.Location = new System.Drawing.Point(148, 222);
             this.efectAjusteResult.Name = "efectAjusteResult";
-            this.efectAjusteResult.Size = new System.Drawing.Size(41, 13);
+            this.efectAjusteResult.Size = new System.Drawing.Size(13, 13);
             this.efectAjusteResult.TabIndex = 13;
-            this.efectAjusteResult.Text = "label12";
+            this.efectAjusteResult.Text = "--";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 171);
+            this.label11.Location = new System.Drawing.Point(32, 223);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(109, 13);
             this.label11.TabIndex = 12;
@@ -539,16 +702,16 @@
             // efectividadResult
             // 
             this.efectividadResult.AutoSize = true;
-            this.efectividadResult.Location = new System.Drawing.Point(91, 145);
+            this.efectividadResult.Location = new System.Drawing.Point(118, 197);
             this.efectividadResult.Name = "efectividadResult";
-            this.efectividadResult.Size = new System.Drawing.Size(41, 13);
+            this.efectividadResult.Size = new System.Drawing.Size(13, 13);
             this.efectividadResult.TabIndex = 11;
-            this.efectividadResult.Text = "label11";
+            this.efectividadResult.Text = "--";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 145);
+            this.label10.Location = new System.Drawing.Point(32, 197);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 13);
             this.label10.TabIndex = 10;
@@ -557,16 +720,16 @@
             // funcionResult
             // 
             this.funcionResult.AutoSize = true;
-            this.funcionResult.Location = new System.Drawing.Point(61, 121);
+            this.funcionResult.Location = new System.Drawing.Point(88, 173);
             this.funcionResult.Name = "funcionResult";
-            this.funcionResult.Size = new System.Drawing.Size(41, 13);
+            this.funcionResult.Size = new System.Drawing.Size(13, 13);
             this.funcionResult.TabIndex = 9;
-            this.funcionResult.Text = "label10";
+            this.funcionResult.Text = "--";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 122);
+            this.label9.Location = new System.Drawing.Point(33, 174);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 8;
@@ -574,7 +737,7 @@
             // 
             // calcularRectaBtn
             // 
-            this.calcularRectaBtn.Location = new System.Drawing.Point(197, 76);
+            this.calcularRectaBtn.Location = new System.Drawing.Point(224, 128);
             this.calcularRectaBtn.Name = "calcularRectaBtn";
             this.calcularRectaBtn.Size = new System.Drawing.Size(75, 23);
             this.calcularRectaBtn.TabIndex = 7;
@@ -587,7 +750,7 @@
             this.metodoCombobox.FormattingEnabled = true;
             this.metodoCombobox.Items.AddRange(new object[] {
             "Regresión Lineal"});
-            this.metodoCombobox.Location = new System.Drawing.Point(61, 78);
+            this.metodoCombobox.Location = new System.Drawing.Point(88, 130);
             this.metodoCombobox.Name = "metodoCombobox";
             this.metodoCombobox.Size = new System.Drawing.Size(121, 21);
             this.metodoCombobox.TabIndex = 6;
@@ -595,7 +758,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 81);
+            this.label8.Location = new System.Drawing.Point(36, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 5;
@@ -603,7 +766,7 @@
             // 
             // cargarBtn
             // 
-            this.cargarBtn.Location = new System.Drawing.Point(149, 42);
+            this.cargarBtn.Location = new System.Drawing.Point(171, 65);
             this.cargarBtn.Name = "cargarBtn";
             this.cargarBtn.Size = new System.Drawing.Size(75, 23);
             this.cargarBtn.TabIndex = 4;
@@ -614,7 +777,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(72, 46);
+            this.label7.Location = new System.Drawing.Point(94, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 13);
             this.label7.TabIndex = 3;
@@ -622,14 +785,14 @@
             // 
             // yResult
             // 
-            this.yResult.Location = new System.Drawing.Point(95, 43);
+            this.yResult.Location = new System.Drawing.Point(117, 66);
             this.yResult.Name = "yResult";
             this.yResult.Size = new System.Drawing.Size(37, 20);
             this.yResult.TabIndex = 2;
             // 
             // xResult
             // 
-            this.xResult.Location = new System.Drawing.Point(29, 43);
+            this.xResult.Location = new System.Drawing.Point(51, 66);
             this.xResult.Name = "xResult";
             this.xResult.Size = new System.Drawing.Size(37, 20);
             this.xResult.TabIndex = 1;
@@ -637,7 +800,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 46);
+            this.label6.Location = new System.Drawing.Point(28, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 13);
             this.label6.TabIndex = 0;
@@ -652,24 +815,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "UNIDAD 4";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 138);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 13);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "MÉTODOS CERRADOS";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(273, 138);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "MÉTODOS ABIERTOS";
             // 
             // AnalisisNumerico
             // 
@@ -752,6 +897,19 @@
         private System.Windows.Forms.Label warnLabel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label efectividadRes;
+        private System.Windows.Forms.Label correlacionResult;
+        private System.Windows.Forms.Label funcionRes;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button borrarUltimoBtn;
+        private System.Windows.Forms.Button borrarPuntosBtn;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox toleranciaValue;
+        private System.Windows.Forms.Label label15;
     }
 }
 

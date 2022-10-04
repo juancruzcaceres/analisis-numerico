@@ -10,12 +10,12 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.Globalization;
-using AnalisisNumerico;
 
 namespace Analisis_Numerico
 {
     public partial class Graficador : UserControl
     {
+
         const string VBS_file = "script.vbs";
         const string output_file = "output.txt";
         const double ZOOM_MAX = 5;
@@ -34,8 +34,6 @@ namespace Analisis_Numerico
         public Graficador()
         {
             InitializeComponent();
-            Graficador graficador = new Graficador();
-           
         }
 		
 		/// <summary>
