@@ -14,12 +14,20 @@ namespace AnalisisNumerico
 {
     public partial class AnalisisNumerico : Form
     {
+        public Graficador graficador { get; set; }
+
         public AnalisisNumerico()
         {
             InitializeComponent();
+            SetPanelGrafica();
+        }
+
+        private void SetPanelGrafica()
+        {
+            panelGrafica.Controls.Clear();
+            this.graficador = new Graficador();
             panelGrafica.Controls.Add(graficador);
             graficador.Dock = DockStyle.Fill;
-
         }
 
         private void biseccionBtn_Click(object sender, EventArgs e)
@@ -437,13 +445,13 @@ namespace AnalisisNumerico
 
         }
 
-        Graficador graficador = new Graficador();
         List<Points> PuntosCargados = new List<Points>();
         private void cargarBtn_Click(object sender, EventArgs e)
         {
             
             if (xResult.Text !="" && yResult.Text!="")
             {
+                warnLabel.Text = "";
                 Points puntoNuevo = new Points() { x = double.Parse(xResult.Text), y = double.Parse(yResult.Text) };
                 PuntosCargados.Add(puntoNuevo);
                 Label puntoIngresado = new Label();
@@ -460,54 +468,128 @@ namespace AnalisisNumerico
 
             } else
             {
-                warningLabel.Text = "Debe ingresar un valor al punto";
+                warnLabel.Text = "Debe ingresar un valor al punto";
             }
             
         }
 
         private void calcularRectaBtn_Click(object sender, EventArgs e)
         {
+            int tolerancia = int.Parse(toleranciaValue.Text);
+            string funcion = "";
+            int cantidadPuntos = PuntosCargados.Count();
+            double sumatoriaX = PuntosCargados.Sum(punto => punto.x);
+            double sumatoriaY = PuntosCargados.Sum(punto => punto.y);
+            double sumatoriaXY = PuntosCargados.Sum(punto => punto.x * punto.y);
+            double sumatoriaX2 = PuntosCargados.Sum(punto => punto.x * punto.x);
+
+            var a1 = (cantidadPuntos * sumatoriaXY - sumatoriaX * sumatoriaY) / (cantidadPuntos * sumatoriaX2 - (sumatoriaX * sumatoriaX));
+            var a0 = (sumatoriaY / cantidadPuntos) - a1 * (sumatoriaX / cantidadPuntos);
+
+            var st = PuntosCargados.Sum(punto => (sumatoriaY / cantidadPuntos - punto.y) * (sumatoriaY / cantidadPuntos - punto.y));
+            var sr = PuntosCargados.Sum(punto => (a1 * punto.x + a0 - punto.y) * (a1 * punto.x + a0 - punto.y));
+
+            var r = Math.Sqrt((st - sr) / st) * 100;
+
             switch (metodoCombobox.SelectedIndex)
             {
                 case 0:
                     //Regresión Lineal
-                    int cantidadPuntos = PuntosCargados.Count();
-                    double sumatoriaX = PuntosCargados.Sum(punto => punto.x);
-                    double sumatoriaY = PuntosCargados.Sum(punto => punto.y);
-                    double sumatoriaXY = PuntosCargados.Sum(punto => punto.x * punto.y);
-                    double sumatoriaX2 = PuntosCargados.Sum(punto => punto.x * punto.x);
 
-                    var a1 = (cantidadPuntos * sumatoriaXY - sumatoriaX * sumatoriaY) / (cantidadPuntos * sumatoriaX2 - (sumatoriaX * sumatoriaX));
-                    var a0 = (sumatoriaY / cantidadPuntos) - a1 * (sumatoriaX / cantidadPuntos);
+                    funcion = Math.Round(a1, 3).ToString() + "*x" + " + " + Math.Round(a0, 3).ToString();
 
-                    var st = PuntosCargados.Sum(punto => (sumatoriaY / cantidadPuntos - punto.y)* (sumatoriaY / cantidadPuntos - punto.y));
-                    var sr = PuntosCargados.Sum(punto => (a1 * punto.x + a0 - punto.y) * (a1 * punto.x + a0 - punto.y));
+                    List<double[]> puntos = new List<double[]>();
+                    foreach (var punto in PuntosCargados)
+                    {
+                        puntos.Add(new double[] { punto.x, punto.y });
+                    }
+                    graficador.Graficar(puntos, funcion);
 
-                    var r = Math.Sqrt((st - sr) / st) * 100;
+                    funcionRes.Text = funcion;
+                    correlacionResult.Text = Math.Round(r, 2).ToString() + "%";
+                    efectividadRes.Text = r < tolerancia ? "El ajuste no es aceptable." : "El ajuste es aceptable.";
 
-                    double[] scale = new double[3];
-                    scale[0] = -10;
-                    scale[1] = 10;
-                    scale[2] = 1;
-
-                    string signoSegundoTermino = a0 * -1 == -a0 ? "+" : "-";
-                    string funcion = a1.ToString() + "*x" + signoSegundoTermino + a0.ToString();
-
-                    List<double[]> puntos = PuntosCargados.Cast<double[]>().ToList();
-
-                    graficador.Graficar(puntos, funcion , scale);
                     break;
                 case 1:
+                    //Regresión Polinomial
+                    int grado = int.Parse(gradoValue.Text);
+                    double[,] resultado = GaussJordan(grado + 1, GenerarMatrizPolinomial(grado, PuntosCargados));
+                    double[] vectorResultado = ; // que valores?
+
+                    funcion = "";
+                    string signo = "";
+                    for (int i = 0; i < vectorResultado.Count(); i++)
+                    {
+                        double ai = Math.Round(vectorResultado[i], 4);
+                        if(i==0 && ai != 0)
+                        {
+                            funcion = $"{ai}";
+                        } 
+                        else if(i == 1 && ai != 0)
+                        {
+                            funcion = $"{ai}x {signo}" + funcion;
+                        } 
+                        else if (ai != 0)
+                        {
+                            funcion = $"{ai}x^{i} {signo}" + funcion;
+                        }
+                        signo = ai > 0 ? "+" : "";
+                    }
+
+                    double x = 0;
+                    double y = 0;
+                    foreach (var punto in PuntosCargados)
+                    {
+                        x = punto.x;
+                        y = punto.y;
+                        double suma = 0;
+                        for (int i = 0; i < vectorResultado.Count(); i++)
+                        {
+                            suma += vectorResultado[i] * Math.Pow(x, i);
+                        }
+                        sr += Math.Pow(suma - y, 2);
+                        st += Math.Pow(sumatoriaY/cantidadPuntos - y, 2);
+                    }
+
+                    funcionRes.Text = funcion;
+                    correlacionResult.Text = Math.Round(r, 2).ToString() + "%";
+                    efectividadRes.Text = r < tolerancia ? "El ajuste no es aceptable." : "El ajuste es aceptable.";
+
                     break;
                 default:
                     break;
             }
         }
 
+        private double[,] GenerarMatrizPolinomial(int grado, List<Points>puntosCargados)
+        {
+            int dimension = grado + 1;
+            double[,] matriz = new double[dimension, dimension+1];
+            double x = 0;
+            double y = 0;
+            foreach (var punto in puntosCargados)
+            {
+                x = punto.x;
+                y = punto.y;
+                for (int fila = 0; fila < dimension; fila++)
+                {
+                    for (int columna = 0; columna < dimension; columna++)
+                    {
+                        matriz[fila, columna] += Math.Pow(x, fila + columna);
+                    }
+                    matriz[fila, dimension] += y * Math.Pow(x, fila);
+                }
+            }
+            return matriz;
+        }
+
         private void borrarPuntosBtn_Click(object sender, EventArgs e)
         {
             PuntosCargados.Clear();
             panelPuntos.Controls.Clear();
+            funcionRes.Text = "--";
+            correlacionResult.Text = "--";
+            efectividadRes.Text = "--";
         }
 
         private void borrarUltimoBtn_Click(object sender, EventArgs e)
@@ -516,6 +598,7 @@ namespace AnalisisNumerico
             panelPuntos.Controls.RemoveAt(panelPuntos.Controls.Count - 1);
             panelPuntos.Update();
         }
+
     }
 
     class Points

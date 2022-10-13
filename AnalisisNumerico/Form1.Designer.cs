@@ -68,6 +68,9 @@
             this.dimensionValue = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gradoValue = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.efectividadRes = new System.Windows.Forms.Label();
             this.correlacionResult = new System.Windows.Forms.Label();
@@ -85,12 +88,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.panelPuntos = new System.Windows.Forms.Panel();
-            this.efectAjusteResult = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.efectividadResult = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.funcionResult = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.calcularRectaBtn = new System.Windows.Forms.Button();
             this.metodoCombobox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -115,7 +112,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1306, 686);
+            this.tabControl1.Size = new System.Drawing.Size(1552, 775);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -149,7 +146,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage1.Size = new System.Drawing.Size(1544, 749);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "UNIDAD 1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -394,7 +391,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage2.Size = new System.Drawing.Size(1544, 749);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "UNIDAD 2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -491,6 +488,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.gradoValue);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.label21);
             this.tabPage3.Controls.Add(this.efectividadRes);
             this.tabPage3.Controls.Add(this.correlacionResult);
@@ -508,12 +508,6 @@
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.panelGrafica);
             this.tabPage3.Controls.Add(this.panelPuntos);
-            this.tabPage3.Controls.Add(this.efectAjusteResult);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.efectividadResult);
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.funcionResult);
-            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.calcularRectaBtn);
             this.tabPage3.Controls.Add(this.metodoCombobox);
             this.tabPage3.Controls.Add(this.label8);
@@ -525,10 +519,36 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage3.Size = new System.Drawing.Size(1544, 749);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "UNIDAD 3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // gradoValue
+            // 
+            this.gradoValue.Location = new System.Drawing.Point(81, 160);
+            this.gradoValue.Name = "gradoValue";
+            this.gradoValue.Size = new System.Drawing.Size(35, 20);
+            this.gradoValue.TabIndex = 33;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(36, 163);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Grado:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(119, 100);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 20);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "%";
             // 
             // label21
             // 
@@ -543,27 +563,30 @@
             // efectividadRes
             // 
             this.efectividadRes.AutoSize = true;
-            this.efectividadRes.Location = new System.Drawing.Point(502, 75);
+            this.efectividadRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.efectividadRes.Location = new System.Drawing.Point(501, 70);
             this.efectividadRes.Name = "efectividadRes";
-            this.efectividadRes.Size = new System.Drawing.Size(13, 13);
+            this.efectividadRes.Size = new System.Drawing.Size(19, 20);
             this.efectividadRes.TabIndex = 29;
             this.efectividadRes.Text = "--";
             // 
             // correlacionResult
             // 
             this.correlacionResult.AutoSize = true;
-            this.correlacionResult.Location = new System.Drawing.Point(454, 52);
+            this.correlacionResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.correlacionResult.Location = new System.Drawing.Point(453, 47);
             this.correlacionResult.Name = "correlacionResult";
-            this.correlacionResult.Size = new System.Drawing.Size(13, 13);
+            this.correlacionResult.Size = new System.Drawing.Size(19, 20);
             this.correlacionResult.TabIndex = 28;
             this.correlacionResult.Text = "--";
             // 
             // funcionRes
             // 
             this.funcionRes.AutoSize = true;
-            this.funcionRes.Location = new System.Drawing.Point(483, 30);
+            this.funcionRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.funcionRes.Location = new System.Drawing.Point(482, 26);
             this.funcionRes.Name = "funcionRes";
-            this.funcionRes.Size = new System.Drawing.Size(13, 13);
+            this.funcionRes.Size = new System.Drawing.Size(19, 20);
             this.funcionRes.TabIndex = 27;
             this.funcionRes.Text = "--";
             // 
@@ -606,7 +629,7 @@
             // 
             // borrarUltimoBtn
             // 
-            this.borrarUltimoBtn.Location = new System.Drawing.Point(224, 283);
+            this.borrarUltimoBtn.Location = new System.Drawing.Point(236, 219);
             this.borrarUltimoBtn.Name = "borrarUltimoBtn";
             this.borrarUltimoBtn.Size = new System.Drawing.Size(115, 23);
             this.borrarUltimoBtn.TabIndex = 22;
@@ -616,7 +639,7 @@
             // 
             // borrarPuntosBtn
             // 
-            this.borrarPuntosBtn.Location = new System.Drawing.Point(224, 254);
+            this.borrarPuntosBtn.Location = new System.Drawing.Point(236, 190);
             this.borrarPuntosBtn.Name = "borrarPuntosBtn";
             this.borrarPuntosBtn.Size = new System.Drawing.Size(115, 23);
             this.borrarPuntosBtn.TabIndex = 21;
@@ -627,7 +650,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(32, 254);
+            this.label16.Location = new System.Drawing.Point(32, 191);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(97, 13);
             this.label16.TabIndex = 20;
@@ -635,15 +658,16 @@
             // 
             // toleranciaValue
             // 
-            this.toleranciaValue.Location = new System.Drawing.Point(97, 100);
+            this.toleranciaValue.Location = new System.Drawing.Point(88, 100);
             this.toleranciaValue.Name = "toleranciaValue";
-            this.toleranciaValue.Size = new System.Drawing.Size(100, 20);
+            this.toleranciaValue.Size = new System.Drawing.Size(55, 20);
             this.toleranciaValue.TabIndex = 19;
+            this.toleranciaValue.Text = "80";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(33, 103);
+            this.label15.Location = new System.Drawing.Point(22, 103);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 13);
             this.label15.TabIndex = 18;
@@ -671,85 +695,36 @@
             // 
             this.panelGrafica.Location = new System.Drawing.Point(381, 110);
             this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Size = new System.Drawing.Size(903, 482);
+            this.panelGrafica.Size = new System.Drawing.Size(1157, 633);
             this.panelGrafica.TabIndex = 15;
             // 
             // panelPuntos
             // 
-            this.panelPuntos.Location = new System.Drawing.Point(141, 254);
+            this.panelPuntos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPuntos.Location = new System.Drawing.Point(141, 191);
             this.panelPuntos.Name = "panelPuntos";
-            this.panelPuntos.Size = new System.Drawing.Size(68, 141);
+            this.panelPuntos.Size = new System.Drawing.Size(89, 141);
             this.panelPuntos.TabIndex = 14;
-            // 
-            // efectAjusteResult
-            // 
-            this.efectAjusteResult.AutoSize = true;
-            this.efectAjusteResult.Location = new System.Drawing.Point(148, 222);
-            this.efectAjusteResult.Name = "efectAjusteResult";
-            this.efectAjusteResult.Size = new System.Drawing.Size(13, 13);
-            this.efectAjusteResult.TabIndex = 13;
-            this.efectAjusteResult.Text = "--";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 223);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 13);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Efectividad de ajuste:";
-            // 
-            // efectividadResult
-            // 
-            this.efectividadResult.AutoSize = true;
-            this.efectividadResult.Location = new System.Drawing.Point(118, 197);
-            this.efectividadResult.Name = "efectividadResult";
-            this.efectividadResult.Size = new System.Drawing.Size(13, 13);
-            this.efectividadResult.TabIndex = 11;
-            this.efectividadResult.Text = "--";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(32, 197);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Efectividad (%):";
-            // 
-            // funcionResult
-            // 
-            this.funcionResult.AutoSize = true;
-            this.funcionResult.Location = new System.Drawing.Point(88, 173);
-            this.funcionResult.Name = "funcionResult";
-            this.funcionResult.Size = new System.Drawing.Size(13, 13);
-            this.funcionResult.TabIndex = 9;
-            this.funcionResult.Text = "--";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 174);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Función:";
             // 
             // calcularRectaBtn
             // 
+            this.calcularRectaBtn.BackColor = System.Drawing.Color.PaleGreen;
+            this.calcularRectaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calcularRectaBtn.Location = new System.Drawing.Point(224, 128);
             this.calcularRectaBtn.Name = "calcularRectaBtn";
-            this.calcularRectaBtn.Size = new System.Drawing.Size(75, 23);
+            this.calcularRectaBtn.Size = new System.Drawing.Size(102, 23);
             this.calcularRectaBtn.TabIndex = 7;
             this.calcularRectaBtn.Text = "CALCULAR";
-            this.calcularRectaBtn.UseVisualStyleBackColor = true;
+            this.calcularRectaBtn.UseVisualStyleBackColor = false;
             this.calcularRectaBtn.Click += new System.EventHandler(this.calcularRectaBtn_Click);
             // 
             // metodoCombobox
             // 
+            this.metodoCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.metodoCombobox.FormattingEnabled = true;
             this.metodoCombobox.Items.AddRange(new object[] {
-            "Regresión Lineal"});
+            "Regresión Lineal",
+            "Regresión Polinomial"});
             this.metodoCombobox.Location = new System.Drawing.Point(88, 130);
             this.metodoCombobox.Name = "metodoCombobox";
             this.metodoCombobox.Size = new System.Drawing.Size(121, 21);
@@ -777,32 +752,36 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(94, 69);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 13);
+            this.label7.Size = new System.Drawing.Size(21, 16);
             this.label7.TabIndex = 3;
             this.label7.Text = "Y:";
             // 
             // yResult
             // 
+            this.yResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yResult.Location = new System.Drawing.Point(117, 66);
             this.yResult.Name = "yResult";
-            this.yResult.Size = new System.Drawing.Size(37, 20);
+            this.yResult.Size = new System.Drawing.Size(37, 22);
             this.yResult.TabIndex = 2;
             // 
             // xResult
             // 
+            this.xResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xResult.Location = new System.Drawing.Point(51, 66);
             this.xResult.Name = "xResult";
-            this.xResult.Size = new System.Drawing.Size(37, 20);
+            this.xResult.Size = new System.Drawing.Size(37, 22);
             this.xResult.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(28, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 13);
+            this.label6.Size = new System.Drawing.Size(20, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "X:";
             // 
@@ -811,7 +790,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1298, 660);
+            this.tabPage4.Size = new System.Drawing.Size(1544, 749);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "UNIDAD 4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -820,7 +799,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 626);
+            this.ClientSize = new System.Drawing.Size(1564, 787);
             this.Controls.Add(this.tabControl1);
             this.Name = "AnalisisNumerico";
             this.Text = "Analisis Numerico";
@@ -887,12 +866,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelGrafica;
         private System.Windows.Forms.Panel panelPuntos;
-        private System.Windows.Forms.Label efectAjusteResult;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label efectividadResult;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label funcionResult;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label warnLabel;
         private System.Windows.Forms.Label label14;
@@ -910,6 +883,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox toleranciaValue;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox gradoValue;
+        private System.Windows.Forms.Label label10;
     }
 }
 
