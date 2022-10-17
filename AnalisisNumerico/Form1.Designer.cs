@@ -693,9 +693,9 @@
             // 
             // panelGrafica
             // 
-            this.panelGrafica.Location = new System.Drawing.Point(381, 110);
+            this.panelGrafica.Location = new System.Drawing.Point(384, 103);
             this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Size = new System.Drawing.Size(1157, 633);
+            this.panelGrafica.Size = new System.Drawing.Size(976, 612);
             this.panelGrafica.TabIndex = 15;
             // 
             // panelPuntos
@@ -799,7 +799,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1564, 787);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.tabControl1);
             this.Name = "AnalisisNumerico";
             this.Text = "Analisis Numerico";

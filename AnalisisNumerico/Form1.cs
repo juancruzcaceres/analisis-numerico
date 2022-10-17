@@ -367,14 +367,17 @@ namespace AnalisisNumerico
                 column++;
             }
 
-            int contador = 0;
-            for (int rowResultado = 0; rowResultado < dimension; rowResultado++)
+            if (panel1.Controls.Count != 0)
             {
-                for (int colResultado = 0; colResultado < dimension+1; colResultado++)
+                int contador = 0;
+                for (int rowResultado = 0; rowResultado < dimension; rowResultado++)
                 {
-                    Control textBox = panel1.Controls[contador];
-                    textBox.Text = matriz[rowResultado, colResultado].ToString();
-                    contador++;
+                    for (int colResultado = 0; colResultado < dimension+1; colResultado++)
+                    {
+                        Control textBox = panel1.Controls[contador];
+                        textBox.Text = matriz[rowResultado, colResultado].ToString();
+                        contador++;
+                    }
                 }
             }
 
@@ -489,20 +492,19 @@ namespace AnalisisNumerico
             var st = PuntosCargados.Sum(punto => (sumatoriaY / cantidadPuntos - punto.y) * (sumatoriaY / cantidadPuntos - punto.y));
             var sr = PuntosCargados.Sum(punto => (a1 * punto.x + a0 - punto.y) * (a1 * punto.x + a0 - punto.y));
 
-            var r = Math.Sqrt((st - sr) / st) * 100;
+            List<double[]> puntos = new List<double[]>();
+            foreach (var punto in PuntosCargados)
+            {
+                puntos.Add(new double[] { punto.x, punto.y });
+            }
 
             switch (metodoCombobox.SelectedIndex)
             {
                 case 0:
                     //Regresión Lineal
-
+                    var r = Math.Sqrt((st - sr) / st) * 100;
                     funcion = Math.Round(a1, 3).ToString() + "*x" + " + " + Math.Round(a0, 3).ToString();
 
-                    List<double[]> puntos = new List<double[]>();
-                    foreach (var punto in PuntosCargados)
-                    {
-                        puntos.Add(new double[] { punto.x, punto.y });
-                    }
                     graficador.Graficar(puntos, funcion);
 
                     funcionRes.Text = funcion;
@@ -512,9 +514,15 @@ namespace AnalisisNumerico
                     break;
                 case 1:
                     //Regresión Polinomial
+                    st = 0; sr = 0;
                     int grado = int.Parse(gradoValue.Text);
                     double[,] resultado = GaussJordan(grado + 1, GenerarMatrizPolinomial(grado, PuntosCargados));
-                    double[] vectorResultado = ; // que valores?
+                    var longitudVectorResultado = resultado.GetLength(0);
+                    double[] vectorResultado = new double[longitudVectorResultado];
+                    for (int i = 0; i < longitudVectorResultado; i++)
+                    {
+                        vectorResultado[i] = resultado[i, resultado.GetLength(1)-1];
+                    }
 
                     funcion = "";
                     string signo = "";
@@ -551,9 +559,11 @@ namespace AnalisisNumerico
                         st += Math.Pow(sumatoriaY/cantidadPuntos - y, 2);
                     }
 
+                    graficador.Graficar(puntos, funcion);
+                    var rel = Math.Sqrt((st - sr) / st) * 100;
                     funcionRes.Text = funcion;
-                    correlacionResult.Text = Math.Round(r, 2).ToString() + "%";
-                    efectividadRes.Text = r < tolerancia ? "El ajuste no es aceptable." : "El ajuste es aceptable.";
+                    correlacionResult.Text = Math.Round(rel, 2).ToString() + "%";
+                    efectividadRes.Text = rel < tolerancia ? "El ajuste no es aceptable." : "El ajuste es aceptable.";
 
                     break;
                 default:
