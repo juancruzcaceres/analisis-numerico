@@ -703,7 +703,7 @@
             this.panelPuntos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPuntos.Location = new System.Drawing.Point(141, 191);
             this.panelPuntos.Name = "panelPuntos";
-            this.panelPuntos.Size = new System.Drawing.Size(89, 141);
+            this.panelPuntos.Size = new System.Drawing.Size(89, 476);
             this.panelPuntos.TabIndex = 14;
             // 
             // calcularRectaBtn
