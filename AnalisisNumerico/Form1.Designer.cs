@@ -97,10 +97,27 @@
             this.xResult = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.funcionINvalue = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.intervaloA = new System.Windows.Forms.TextBox();
+            this.cantidadSubintervalos = new System.Windows.Forms.TextBox();
+            this.metodoIN = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.resultadoU4 = new System.Windows.Forms.Label();
+            this.intervaloB = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -787,6 +804,22 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label29);
+            this.tabPage4.Controls.Add(this.label28);
+            this.tabPage4.Controls.Add(this.intervaloB);
+            this.tabPage4.Controls.Add(this.resultadoU4);
+            this.tabPage4.Controls.Add(this.label27);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.metodoIN);
+            this.tabPage4.Controls.Add(this.cantidadSubintervalos);
+            this.tabPage4.Controls.Add(this.intervaloA);
+            this.tabPage4.Controls.Add(this.label26);
+            this.tabPage4.Controls.Add(this.label25);
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Controls.Add(this.funcionINvalue);
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.label22);
+            this.tabPage4.Controls.Add(this.label11);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -794,6 +827,160 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "UNIDAD 4";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(9, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(165, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "INTEGRACION NUMERICA ";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(9, 38);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(137, 18);
+            this.label22.TabIndex = 1;
+            this.label22.Text = "Datos de entrada";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(13, 62);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 13);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Funcion:";
+            // 
+            // funcionINvalue
+            // 
+            this.funcionINvalue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.funcionINvalue.Location = new System.Drawing.Point(67, 59);
+            this.funcionINvalue.Name = "funcionINvalue";
+            this.funcionINvalue.Size = new System.Drawing.Size(181, 24);
+            this.funcionINvalue.TabIndex = 3;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(13, 93);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(91, 13);
+            this.label24.TabIndex = 4;
+            this.label24.Text = "Intervalo (a, b)";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(13, 124);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 13);
+            this.label25.TabIndex = 5;
+            this.label25.Text = "Subintervalos:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(13, 157);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 13);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "Metodo:";
+            // 
+            // intervaloA
+            // 
+            this.intervaloA.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intervaloA.Location = new System.Drawing.Point(131, 90);
+            this.intervaloA.Name = "intervaloA";
+            this.intervaloA.Size = new System.Drawing.Size(43, 24);
+            this.intervaloA.TabIndex = 7;
+            // 
+            // cantidadSubintervalos
+            // 
+            this.cantidadSubintervalos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cantidadSubintervalos.Location = new System.Drawing.Point(93, 121);
+            this.cantidadSubintervalos.Name = "cantidadSubintervalos";
+            this.cantidadSubintervalos.Size = new System.Drawing.Size(43, 24);
+            this.cantidadSubintervalos.TabIndex = 8;
+            // 
+            // metodoIN
+            // 
+            this.metodoIN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.metodoIN.FormattingEnabled = true;
+            this.metodoIN.Items.AddRange(new object[] {
+            "Trapecios Simple",
+            "Trapecios Múltiple",
+            "Simpson 1/3 Simple",
+            "Simpson 1/3 Multiple"});
+            this.metodoIN.Location = new System.Drawing.Point(65, 154);
+            this.metodoIN.Name = "metodoIN";
+            this.metodoIN.Size = new System.Drawing.Size(121, 21);
+            this.metodoIN.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(12, 196);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(174, 67);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "♥️ C A L C U L A R ♥️";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(293, 7);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(139, 24);
+            this.label27.TabIndex = 11;
+            this.label27.Text = "RESULTADO:";
+            // 
+            // resultadoU4
+            // 
+            this.resultadoU4.AutoSize = true;
+            this.resultadoU4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoU4.Location = new System.Drawing.Point(438, 7);
+            this.resultadoU4.Name = "resultadoU4";
+            this.resultadoU4.Size = new System.Drawing.Size(0, 24);
+            this.resultadoU4.TabIndex = 12;
+            // 
+            // intervaloB
+            // 
+            this.intervaloB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intervaloB.Location = new System.Drawing.Point(203, 90);
+            this.intervaloB.Name = "intervaloB";
+            this.intervaloB.Size = new System.Drawing.Size(45, 24);
+            this.intervaloB.TabIndex = 13;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(110, 93);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(17, 13);
+            this.label28.TabIndex = 14;
+            this.label28.Text = "A:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(180, 93);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(17, 13);
+            this.label29.TabIndex = 15;
+            this.label29.Text = "B:";
             // 
             // AnalisisNumerico
             // 
@@ -811,6 +998,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -886,6 +1075,22 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox gradoValue;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox metodoIN;
+        private System.Windows.Forms.TextBox cantidadSubintervalos;
+        private System.Windows.Forms.TextBox intervaloA;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox funcionINvalue;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label resultadoU4;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox intervaloB;
     }
 }
 

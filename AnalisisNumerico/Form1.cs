@@ -609,6 +609,73 @@ namespace AnalisisNumerico
             panelPuntos.Update();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Calculo analizadorFunciones = new Calculo();
+            string fx = funcionINvalue.Text;
+            analizadorFunciones.Sintaxis(fx, 'x');
+
+            double a = double.Parse(intervaloA.Text);
+            double b = double.Parse(intervaloB.Text);
+            int n = 0;
+            double h = 0;
+            double resultado = 0;
+            double sumatoria = 0;
+            double sumatoria2 = 0;
+            switch (metodoIN.SelectedIndex)
+            {
+                //Trapecios simple
+                case 0:
+                    resultado = ((analizadorFunciones.EvaluaFx(a) + analizadorFunciones.EvaluaFx(b)) * (b - a)) / 2;
+                    resultadoU4.Text = Math.Round(resultado, 3).ToString();
+                    break;
+                //Trapecios multiple
+                case 1:
+                    n = int.Parse(cantidadSubintervalos.Text);
+                    h = (b - a) / n;
+
+                    for (int i = 1; i < n; i++)
+                    {
+                        sumatoria += analizadorFunciones.EvaluaFx(a+h*i);
+                    }
+
+                    resultado = ((h / 2) * (analizadorFunciones.EvaluaFx(a) + 2 * sumatoria + analizadorFunciones.EvaluaFx(b)));
+                    resultadoU4.Text = Math.Round(resultado,3).ToString();
+                    break;
+                //Simpson 1/3 simple
+                case 2:
+                    h = ((b - a) / 2);
+                    resultado = ((h / 3) * (analizadorFunciones.EvaluaFx(a) + 4 * analizadorFunciones.EvaluaFx(a + h) + analizadorFunciones.EvaluaFx(b)));
+                    resultadoU4.Text = Math.Round(resultado, 3).ToString();
+                    break;
+                //Simpson 1/3 Multiple
+                case 3:
+                    n = int.Parse(cantidadSubintervalos.Text);
+                    if (n%2 == 0)
+                    {
+                        h = ((b - a) / n);
+
+                        for (int i = 1; i < n; i+=2)
+                        {
+                            sumatoria += analizadorFunciones.EvaluaFx(a + h * i);
+                        }
+
+                        for (int i = 2; i < n-1; i+=2)
+                        {
+                            sumatoria2 += analizadorFunciones.EvaluaFx(a + h * i);
+                        }
+
+                        resultado = ((h / 3) * (analizadorFunciones.EvaluaFx(a) + 4 * sumatoria + 2 * sumatoria2 + analizadorFunciones.EvaluaFx(b)));
+
+                    } else
+                    {
+                        h = (b - a) / 3;
+                        resultado = (((3*h)/8) * (analizadorFunciones.EvaluaFx(a) + 3 * analizadorFunciones.EvaluaFx(a+h) + 3* analizadorFunciones.EvaluaFx(a+2*h)+ analizadorFunciones.EvaluaFx(b)));
+                    }
+                    resultadoU4.Text = Math.Round(resultado, 3).ToString();
+                    break;
+            }
+        }
     }
 
     class Points
